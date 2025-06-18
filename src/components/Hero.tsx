@@ -17,11 +17,11 @@ const Hero = () => {
         <div className="text-center max-w-5xl mx-auto">
           {/* Logo */}
           <div className="mb-8 flex justify-center">
-            <img 
-              src="/lovable-uploads/f37acc0e-329b-490e-bb0c-5ae4564711be.png" 
-              alt="Opsie Logo" 
-              className="h-24 w-auto animate-glow"
-            />
+            <div className="pixel-shadow hover:pixel-shadow-hover transition-all duration-300 bg-white rounded-lg p-4">
+              <div className="font-sora font-black text-4xl text-primary-600 tracking-tight">
+                OPSIE
+              </div>
+            </div>
           </div>
 
           {/* Main Headline */}
