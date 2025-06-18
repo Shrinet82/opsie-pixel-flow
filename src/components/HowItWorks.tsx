@@ -45,13 +45,6 @@ const HowItWorks = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {steps.map((step, index) => (
               <div key={index} className="relative">
-                {/* Connection Line */}
-                {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-primary-200 to-primary-300 transform translate-x-4 z-0">
-                    <div className="absolute right-0 top-1/2 transform translate-y-[-50%] w-3 h-3 bg-primary-400 rounded-full animate-pulse" />
-                  </div>
-                )}
-
                 <div className="relative z-10 text-center">
                   {/* Step Number */}
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-500 text-white font-sora font-bold text-xl rounded-2xl mb-6 pixel-shadow">
