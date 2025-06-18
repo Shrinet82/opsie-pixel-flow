@@ -71,40 +71,42 @@ const Services = () => {
           </p>
         </div>
 
-        {/* Interactive Case Study Selector */}
         <div className="max-w-6xl mx-auto">
-          {/* Case Study Tabs */}
           <div className="flex flex-col md:flex-row gap-4 mb-12">
-            {caseStudies.map((study, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveCase(index)}
-                className={`flex-1 p-4 rounded-xl border-2 transition-all duration-300 text-left ${
-                  activeCase === index
-                    ? 'border-primary-500 bg-primary-50 pixel-shadow'
-                    : 'border-gray-200 hover:border-primary-200 hover:bg-gray-50'
-                }`}
-              >
-                <div className={`w-12 h-12 bg-gradient-to-br ${study.color} rounded-lg flex items-center justify-center mb-3`}>
-                  <study.icon className={`w-6 h-6 ${study.iconColor}`} />
-                </div>
-                <h3 className="font-sora font-semibold text-lg text-midnight-900 mb-2">
-                  {study.title.split(' ').slice(0, 4).join(' ')}...
-                </h3>
-                <p className="text-sm text-midnight-600">{study.client}</p>
-              </button>
-            ))}
+            {caseStudies.map((study, index) => {
+              const IconComponent = study.icon;
+              return (
+                <button
+                  key={index}
+                  onClick={() => setActiveCase(index)}
+                  className={`flex-1 p-4 rounded-xl border-2 transition-all duration-300 text-left ${
+                    activeCase === index
+                      ? 'border-primary-500 bg-primary-50 pixel-shadow'
+                      : 'border-gray-200 hover:border-primary-200 hover:bg-gray-50'
+                  }`}
+                >
+                  <div className={`w-12 h-12 bg-gradient-to-br ${study.color} rounded-lg flex items-center justify-center mb-3`}>
+                    <IconComponent className={`w-6 h-6 ${study.iconColor}`} />
+                  </div>
+                  <h3 className="font-sora font-semibold text-lg text-midnight-900 mb-2">
+                    {study.title.split(' ').slice(0, 4).join(' ')}...
+                  </h3>
+                  <p className="text-sm text-midnight-600">{study.client}</p>
+                </button>
+              );
+            })}
           </div>
 
-          {/* Active Case Study Details */}
           <div className="bg-gradient-to-br from-slate-50 to-purple-50/20 rounded-2xl p-8 pixel-shadow">
             <div className="grid lg:grid-cols-2 gap-8">
-              {/* Left Column - Challenge & Solution */}
               <div>
                 <div className="mb-6">
                   <div className="flex items-center mb-4">
                     <div className={`w-16 h-16 bg-gradient-to-br ${caseStudies[activeCase].color} rounded-xl flex items-center justify-center mr-4`}>
-                      <caseStudies[activeCase].icon className={`w-8 h-8 ${caseStudies[activeCase].iconColor}`} />
+                      {(() => {
+                        const IconComponent = caseStudies[activeCase].icon;
+                        return <IconComponent className={`w-8 h-8 ${caseStudies[activeCase].iconColor}`} />;
+                      })()}
                     </div>
                     <div>
                       <h3 className="font-sora font-bold text-2xl text-midnight-900">
@@ -146,7 +148,6 @@ const Services = () => {
                 </div>
               </div>
 
-              {/* Right Column - Results & Quote */}
               <div>
                 <div className="mb-6">
                   <h4 className="font-sora font-semibold text-lg text-green-600 mb-4 flex items-center">
