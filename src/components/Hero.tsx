@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Zap } from "lucide-react";
 
 const Hero = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/30 to-blue-50/20 bg-pixel-pattern">
       {/* Floating Elements */}
@@ -47,6 +54,7 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-in" style={{animationDelay: '0.6s'}}>
             <Button 
+              onClick={scrollToContact}
               size="lg" 
               className="bg-primary-500 hover:bg-primary-600 text-white font-sora font-semibold text-lg px-8 py-4 h-auto pixel-shadow hover:pixel-shadow-hover transition-all duration-300 group"
             >

@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Zap, Clock } from "lucide-react";
 
 const CTA = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="py-24 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 relative overflow-hidden">
       {/* Background Pattern */}
@@ -32,6 +39,7 @@ const CTA = () => {
           </p>
 
           <Button 
+            onClick={scrollToContact}
             size="lg" 
             className="bg-white text-primary-600 hover:bg-gray-50 font-sora font-bold text-xl px-12 py-6 h-auto pixel-shadow hover:pixel-shadow-hover transition-all duration-300 group"
           >
