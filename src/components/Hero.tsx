@@ -1,8 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Zap } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -63,6 +66,7 @@ const Hero = () => {
             </Button>
             
             <Button 
+              onClick={() => navigate('/case-studies')}
               variant="outline" 
               size="lg" 
               className="border-2 border-primary-300 text-primary-700 hover:bg-primary-50 font-sora font-medium text-lg px-8 py-4 h-auto group"
