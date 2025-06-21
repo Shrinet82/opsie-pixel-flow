@@ -1,6 +1,5 @@
-
 import { Button } from "@/components/ui/button";
-import { Users, Target, TrendingUp, ArrowRight, Sparkles } from "lucide-react";
+import { Users, Target, TrendingUp, ArrowRight, Sparkles, MessageSquare } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Services = () => {
@@ -30,6 +29,14 @@ const Services = () => {
       color: "from-green-100 to-emerald-100",
       iconColor: "text-green-600",
       example: "75% faster payroll processing"
+    },
+    {
+      title: "WhatsApp Automation",
+      description: "AI-powered appointment booking, reminders, and patient communication systems",
+      icon: MessageSquare,
+      color: "from-orange-100 to-red-100",
+      iconColor: "text-orange-600",
+      example: "95% reduction in missed appointments"
     }
   ];
 
@@ -56,7 +63,7 @@ const Services = () => {
 
         {/* Service Highlights Grid - Mobile First */}
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {serviceHighlights.map((service, index) => {
               const IconComponent = service.icon;
               return (

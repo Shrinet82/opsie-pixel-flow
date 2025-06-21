@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { ChevronRight, Users, Target, TrendingUp, MapPin, Clock, Zap, ArrowLeft } from "lucide-react";
+import { ChevronRight, Users, Target, TrendingUp, MapPin, Clock, Zap, ArrowLeft, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -59,6 +59,24 @@ const CaseStudies = () => {
       author: "Ananya T., Head of People @SaaSyBits",
       color: "from-green-100 to-emerald-100",
       iconColor: "text-green-600"
+    },
+    {
+      title: "WhatsApp Dental Appointment Automation System",
+      client: "Independent dental clinic with 500+ monthly patient appointments",
+      icon: MessageSquare,
+      challenge: "Manual appointment booking via phone calls was time-consuming. High no-show rates, missed follow-ups, and staff spending 3+ hours daily on scheduling. Patients struggled with clinic hours for rescheduling.",
+      solution: "AI-powered WhatsApp chatbot with real-time calendar integration. Automated booking, rescheduling, reminders, and digital consent forms. Multilingual support with HIPAA-compliant patient data handling.",
+      tools: ["WhatsApp Business API", "n8n", "Google Calendar", "OpenAI GPT", "Airtable", "Twilio"],
+      results: [
+        "95% reduction in missed appointments",
+        "60% decrease in administrative phone time",
+        "40% increase in patient satisfaction scores",
+        "24/7 booking availability improved retention by 30%"
+      ],
+      quote: "Our patients love booking through WhatsApp - it's so convenient. We've practically eliminated no-shows and our staff can focus on patient care instead of endless phone calls.",
+      author: "Dr. Maria Gonzalez, DDS @Bright Smile Dental",
+      color: "from-orange-100 to-red-100",
+      iconColor: "text-orange-600"
     }
   ];
 
@@ -103,8 +121,8 @@ const CaseStudies = () => {
 
         {/* Mobile-First Case Study Navigation */}
         <div className="max-w-6xl mx-auto">
-          {/* Case Study Tabs - Stack on mobile, row on larger screens */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-8 sm:mb-12">
+          {/* Case Study Tabs - Grid layout for mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-12">
             {caseStudies.map((study, index) => {
               const IconComponent = study.icon;
               return (
