@@ -1,11 +1,11 @@
 
+import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Problems from "@/components/Problems";
 import HowItWorks from "@/components/HowItWorks";
 import Services from "@/components/Services";
 import Tools from "@/components/Tools";
 import WhyOpsie from "@/components/WhyOpsie";
-import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Contact from "@/components/Contact";
 
@@ -42,13 +42,13 @@ const Index = () => {
         }}
       />
       
+      <Navigation />
       <Hero />
       <Problems />
       <HowItWorks />
       <Services />
       <Tools />
       <WhyOpsie />
-      <FAQ />
       <CTA />
       <Contact />
     </div>

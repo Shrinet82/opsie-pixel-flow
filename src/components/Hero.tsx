@@ -14,7 +14,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/30 to-blue-50/20 dark:from-gray-900 dark:via-purple-950/50 dark:to-blue-950/30 bg-pixel-pattern transition-colors duration-300">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/30 to-blue-50/20 dark:from-gray-900 dark:via-purple-950/50 dark:to-blue-950/30 bg-pixel-pattern transition-colors duration-300 pt-16">
       {/* Floating Elements - Psychology: Subtle movement creates engagement */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-20 w-12 h-12 bg-primary/20 dark:bg-primary/30 rounded-lg animate-float" style={{animationDelay: '0s'}} />

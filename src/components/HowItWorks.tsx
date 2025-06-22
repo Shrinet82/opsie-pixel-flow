@@ -1,4 +1,3 @@
-
 import { MessageSquare, Settings, TrendingUp } from "lucide-react";
 
 const HowItWorks = () => {
@@ -30,7 +29,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 to-purple-50/20">
+    <section id="how-it-works" className="py-16 sm:py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-sora font-bold text-4xl md:text-5xl text-midnight-900 mb-6">
