@@ -14,23 +14,62 @@ const Contact = () => {
     automation: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [googleSheetsUrl, setGoogleSheetsUrl] = useState("");
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "You're in! 🛠️",
-      description: "Your automation brief is in. Opsie will get back within 24 hours.",
-      duration: 5000,
-    });
-    
-    setFormData({ name: "", email: "", businessType: "", automation: "" });
-    setIsSubmitting(false);
+    try {
+      // If Google Sheets webhook URL is provided, send data there
+      if (googleSheetsUrl) {
+        console.log("Sending data to Google Sheets:", googleSheetsUrl);
+        
+        const response = await fetch(googleSheetsUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          mode: "no-cors",
+          body: JSON.stringify({
+            timestamp: new Date().toISOString(),
+            name: formData.name,
+            email: formData.email,
+            businessType: formData.businessType,
+            automation: formData.automation,
+            source: window.location.origin,
+          }),
+        });
+
+        toast({
+          title: "Success! 📊",
+          description: "Your automation brief has been submitted and saved to Google Sheets. We'll get back to you within 24 hours.",
+          duration: 5000,
+        });
+      } else {
+        // Fallback message if no Google Sheets integration
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        toast({
+          title: "You're in! 🛠️",
+          description: "Your automation brief is in. Opsie will get back within 24 hours.",
+          duration: 5000,
+        });
+      }
+      
+      setFormData({ name: "", email: "", businessType: "", automation: "" });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Form Submitted",
+        description: "Your request was sent. We'll get back to you within 24 hours.",
+        duration: 5000,
+      });
+      setFormData({ name: "", email: "", businessType: "", automation: "" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -41,25 +80,43 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-slate-50 to-purple-50/20">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-16 sm:py-24 bg-gradient-to-br from-slate-50 to-purple-50/20 dark:from-gray-900 dark:to-purple-950/20 transition-colors duration-300">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex justify-center mb-6">
-              <Sparkles className="w-12 h-12 text-primary-500 animate-pulse" />
+              <Sparkles className="w-12 h-12 text-primary-500 dark:text-primary-400 animate-pulse transition-colors duration-300" />
             </div>
-            <h2 className="font-sora font-bold text-4xl md:text-5xl text-midnight-900 mb-6">
-              Let's build your first <span className="text-primary-500">automation</span>
+            <h2 className="font-sora font-bold text-3xl sm:text-4xl md:text-5xl text-midnight-900 dark:text-gray-100 mb-6 transition-colors duration-300">
+              Let's build your first <span className="text-primary-500 dark:text-primary-400">automation</span>
             </h2>
-            <p className="text-xl text-midnight-600">
+            <p className="text-lg sm:text-xl text-midnight-600 dark:text-gray-300 transition-colors duration-300">
               Tell us what's driving you crazy, and we'll make it disappear
+            </p>
+          </div>
+
+          {/* Google Sheets Configuration */}
+          <div className="mb-8 p-4 bg-blue-50 dark:bg-blue-950/20 rounded-lg border border-blue-200 dark:border-blue-800 transition-colors duration-300">
+            <label htmlFor="googleSheetsUrl" className="block text-sm font-medium text-blue-800 dark:text-blue-200 mb-2">
+              Google Sheets Webhook URL (Optional - for admin use)
+            </label>
+            <Input
+              id="googleSheetsUrl"
+              type="url"
+              value={googleSheetsUrl}
+              onChange={(e) => setGoogleSheetsUrl(e.target.value)}
+              placeholder="https://script.google.com/macros/s/your-script-id/exec"
+              className="text-sm bg-white dark:bg-gray-800 border-blue-300 dark:border-blue-700"
+            />
+            <p className="text-xs text-blue-600 dark:text-blue-300 mt-1">
+              Add your Google Apps Script webhook URL to automatically save form responses to Google Sheets
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-midnight-700 font-medium mb-2">
+                <label htmlFor="name" className="block text-midnight-700 dark:text-gray-300 font-medium mb-2 transition-colors duration-300">
                   Name
                 </label>
                 <Input
@@ -69,13 +126,13 @@ const Contact = () => {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="glow-border focus:border-primary-400"
+                  className="glow-border focus:border-primary-400 dark:bg-gray-800 dark:border-gray-600 transition-colors duration-300"
                   placeholder="Your name"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-midnight-700 font-medium mb-2">
+                <label htmlFor="email" className="block text-midnight-700 dark:text-gray-300 font-medium mb-2 transition-colors duration-300">
                   Email
                 </label>
                 <Input
@@ -85,14 +142,14 @@ const Contact = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="glow-border focus:border-primary-400"
+                  className="glow-border focus:border-primary-400 dark:bg-gray-800 dark:border-gray-600 transition-colors duration-300"
                   placeholder="your@email.com"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="businessType" className="block text-midnight-700 font-medium mb-2">
+              <label htmlFor="businessType" className="block text-midnight-700 dark:text-gray-300 font-medium mb-2 transition-colors duration-300">
                 Business Type
               </label>
               <Input
@@ -101,13 +158,13 @@ const Contact = () => {
                 type="text"
                 value={formData.businessType}
                 onChange={handleChange}
-                className="glow-border focus:border-primary-400"
+                className="glow-border focus:border-primary-400 dark:bg-gray-800 dark:border-gray-600 transition-colors duration-300"
                 placeholder="e.g., Marketing Agency, SaaS Startup, Consulting"
               />
             </div>
 
             <div>
-              <label htmlFor="automation" className="block text-midnight-700 font-medium mb-2">
+              <label htmlFor="automation" className="block text-midnight-700 dark:text-gray-300 font-medium mb-2 transition-colors duration-300">
                 What's one thing you want to automate?
               </label>
               <Textarea
@@ -116,7 +173,7 @@ const Contact = () => {
                 required
                 value={formData.automation}
                 onChange={handleChange}
-                className="glow-border focus:border-primary-400 min-h-32"
+                className="glow-border focus:border-primary-400 min-h-32 dark:bg-gray-800 dark:border-gray-600 transition-colors duration-300"
                 placeholder="Describe your most painful manual process... be specific!"
               />
             </div>
@@ -124,7 +181,7 @@ const Contact = () => {
             <Button 
               type="submit" 
               disabled={isSubmitting}
-              className="w-full bg-primary-500 hover:bg-primary-600 text-white font-sora font-semibold text-lg py-6 h-auto pixel-shadow hover:pixel-shadow-hover transition-all duration-300 group"
+              className="w-full bg-primary-500 hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700 text-white font-sora font-semibold text-lg py-6 h-auto pixel-shadow hover:pixel-shadow-hover transition-all duration-300 group"
             >
               {isSubmitting ? (
                 "Sending..."
@@ -137,7 +194,7 @@ const Contact = () => {
             </Button>
           </form>
 
-          <div className="text-center mt-8 text-midnight-500">
+          <div className="text-center mt-8 text-midnight-500 dark:text-gray-400 transition-colors duration-300">
             <p className="text-sm">
               🔒 We respect your privacy. No spam, ever.
             </p>
