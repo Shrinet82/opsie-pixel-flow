@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Sparkles } from "lucide-react";
+import { GOOGLE_SHEETS_WEBHOOK_URL } from "@/config/webhooks";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +15,6 @@ const Contact = () => {
     automation: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [googleSheetsUrl, setGoogleSheetsUrl] = useState("");
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,11 +22,11 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // If Google Sheets webhook URL is provided, send data there
-      if (googleSheetsUrl) {
-        console.log("Sending data to Google Sheets:", googleSheetsUrl);
+      // If Google Sheets webhook URL is configured, send data there
+      if (GOOGLE_SHEETS_WEBHOOK_URL) {
+        console.log("Sending data to Google Sheets:", GOOGLE_SHEETS_WEBHOOK_URL);
         
-        const response = await fetch(googleSheetsUrl, {
+        const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -92,24 +92,6 @@ const Contact = () => {
             </h2>
             <p className="text-lg sm:text-xl text-midnight-600 dark:text-gray-300 transition-colors duration-300">
               Tell us what's driving you crazy, and we'll make it disappear
-            </p>
-          </div>
-
-          {/* Google Sheets Configuration */}
-          <div className="mb-8 p-4 bg-blue-50 dark:bg-blue-950/20 rounded-lg border border-blue-200 dark:border-blue-800 transition-colors duration-300">
-            <label htmlFor="googleSheetsUrl" className="block text-sm font-medium text-blue-800 dark:text-blue-200 mb-2">
-              Google Sheets Webhook URL (Optional - for admin use)
-            </label>
-            <Input
-              id="googleSheetsUrl"
-              type="url"
-              value={googleSheetsUrl}
-              onChange={(e) => setGoogleSheetsUrl(e.target.value)}
-              placeholder="https://script.google.com/macros/s/your-script-id/exec"
-              className="text-sm bg-white dark:bg-gray-800 border-blue-300 dark:border-blue-700"
-            />
-            <p className="text-xs text-blue-600 dark:text-blue-300 mt-1">
-              Add your Google Apps Script webhook URL to automatically save form responses to Google Sheets
             </p>
           </div>
 

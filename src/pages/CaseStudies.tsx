@@ -7,6 +7,7 @@ import { caseStudies } from "@/data/caseStudiesData";
 import CaseStudyNavigation from "@/components/CaseStudyNavigation";
 import CaseStudyDetails from "@/components/CaseStudyDetails";
 import CaseStudyCTA from "@/components/CaseStudyCTA";
+import Navigation from "@/components/Navigation";
 
 const CaseStudies = () => {
   const [activeCase, setActiveCase] = useState(0);
@@ -24,8 +25,10 @@ const CaseStudies = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-blue-50/20 bg-pixel-pattern">
+      <Navigation />
+      
       {/* Header */}
-      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 pt-24">
         <Button 
           onClick={() => navigate('/')}
           variant="outline" 
