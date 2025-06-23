@@ -1,7 +1,6 @@
 
 import { useState } from "react";
-import { ArrowLeft, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { caseStudies } from "@/data/caseStudiesData";
 import CaseStudyNavigation from "@/components/CaseStudyNavigation";
@@ -29,15 +28,6 @@ const CaseStudies = () => {
       
       {/* Header */}
       <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 pt-24">
-        <Button 
-          onClick={() => navigate('/')}
-          variant="outline" 
-          className="mb-8 sm:mb-12 group hover:scale-105 transition-all duration-300 rounded-xl px-6 py-3 text-base font-medium"
-        >
-          <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
-          Back to Home
-        </Button>
-
         <div className="text-center mb-16 sm:mb-20">
           <div className="mb-8 flex justify-center">
             <div className="relative pixel-shadow-hover hover:scale-105 transition-all duration-500 bg-gradient-to-br from-white to-purple-50/50 rounded-2xl p-4 sm:p-6 border border-purple-200/30">

@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Zap } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -61,7 +60,7 @@ const Hero = () => {
               size="lg" 
               className="bg-primary-500 hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700 text-white font-sora font-semibold text-lg px-8 py-4 h-auto pixel-shadow hover:pixel-shadow-hover transition-all duration-300 group"
             >
-              Get Free Automation Audit
+              Contact Us
               <Zap className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform text-emerald-400 dark:text-emerald-300" />
             </Button>
             
