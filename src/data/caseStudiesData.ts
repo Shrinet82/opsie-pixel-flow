@@ -17,71 +17,74 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
-    title: "Ops Layer for a Design Consultancy Scaling Globally",
-    client: "UX/UI Consultancy scaling from 6 to 18 team members across 3 time zones",
-    icon: Users,
-    challenge: "As the team grew, onboarding freelancers, designers, and project managers became chaotic. Each hire involved custom Slack invites, region-specific documents, adding to 3+ Notion workspaces, Asana templates, and manual NDA + project briefs.",
-    solution: "Multi-branch onboarding system using form-based triggers and conditional logic. Based on location & role, the flow branches into Slack invites, correct regional documents, Notion access, Asana templates, and manager introductions.",
-    tools: ["n8n", "Notion API", "Slack API", "Asana", "Google Workspace"],
+    title: "E-commerce Order Processing Revolution",
+    client: "Fashion retail company processing 2,000+ orders daily across multiple platforms",
+    icon: TrendingUp,
+    challenge: "Orders from Shopify, Amazon, and Etsy required manual data entry into fulfillment systems. Customer service team spent 6 hours daily updating order statuses, creating shipping labels, and sending tracking notifications. Inventory discrepancies led to overselling.",
+    solution: "Unified order processing pipeline that automatically syncs orders across platforms, generates shipping labels, updates inventory in real-time, and sends personalized tracking emails. Built conditional logic for expedited orders and automated inventory alerts.",
+    tools: ["Zapier", "Shopify API", "Amazon API", "Klaviyo", "ShipStation", "Google Sheets"],
     results: [
-      "Cut onboarding time from 2.5 hours per hire to 10 minutes",
-      "100% reduction in errors in access or document delivery",
-      "Manager onboarding score went up by 40%"
+      "87% reduction in order processing time",
+      "Zero overselling incidents in 6 months",
+      "Customer satisfaction increased by 35%",
+      "Freed up 30 hours/week for strategic tasks"
     ],
-    quote: "Opsie gave us the ability to scale our people without scaling the chaos. It's like having an invisible team member who never forgets a step.",
-    author: "Rina S., Partner @Axiom Design Lab",
+    quote: "Opsie transformed our chaotic order management into a smooth, automated machine. We went from constantly firefighting to actually growing our business.",
+    author: "Sarah Chen, COO @StyleFlow Boutique",
     color: "from-blue-100 to-cyan-100",
     iconColor: "text-blue-600"
   },
   {
-    title: "Automated Talent Funnel for a Startup Accelerator",
-    client: "Early-stage accelerator reviewing 300+ founder applications/month",
+    title: "Lead Qualification & CRM Automation",
+    client: "B2B marketing agency managing 500+ leads monthly for 12 clients",
     icon: Target,
-    challenge: "Manually managing intake forms, evaluating pitch decks, and scheduling calls with shortlisted founders was overwhelming. They used Google Forms + Sheets, internal Slack threads, and individual Calendly links.",
-    solution: "Founder Evaluation Pipeline with auto-evaluation + CRM syncing. Deck + pitch answers auto-scored using Gemini Pro, summary generated, shortlist gets auto Calendly link, and final statuses tracked in Airtable.",
-    tools: ["n8n", "Gemini", "Notion API", "Google Calendar", "Airtable", "Slack"],
+    challenge: "Leads came from multiple sources - LinkedIn, website forms, cold outreach, and referrals. Manual lead scoring took 2+ hours daily, and follow-up sequences were inconsistent. Hot leads were getting lost in the pipeline while cold leads received too much attention.",
+    solution: "Intelligent lead scoring system using behavioral data and demographic analysis. Automatically segments leads, assigns scores, routes to appropriate sales reps, and triggers personalized follow-up sequences based on lead temperature and industry.",
+    tools: ["HubSpot", "n8n", "LinkedIn Sales Navigator", "Calendly", "Slack", "OpenAI API"],
     results: [
-      "90% reduction in manual shortlist & scheduling time",
-      "Consistent scoring across teams",
-      "3 new founders discovered who were missed in manual review"
+      "Lead response time improved from 4 hours to 5 minutes",
+      "42% increase in qualified lead conversion",
+      "Sales team productivity up 60%",
+      "Revenue per lead increased by $1,200"
     ],
-    quote: "Opsie turned our application chaos into a system. The clarity and speed it brought is now baked into how we operate.",
-    author: "Kartik M., Program Director @Fundraze Accelerator",
+    quote: "Our sales team went from drowning in unqualified leads to having meaningful conversations with prospects who are ready to buy. It's like having a crystal ball for our pipeline.",
+    author: "Marcus Rodriguez, VP Sales @GrowthTech Solutions",
     color: "from-purple-100 to-pink-100",
     iconColor: "text-purple-600"
   },
   {
-    title: "Real-Time Leave + Payroll Sync for a Global Remote Team",
-    client: "35-member remote SaaS company working across 5 countries",
-    icon: TrendingUp,
-    challenge: "Leave requests came via email, Notion, and Slack DMs. HR had to update local payroll and benefits in country-specific formats. Errors led to payroll delays and employee dissatisfaction.",
-    solution: "Leave-to-Payroll Sync Engine integrated with Notion + Remote.com. Validates against role, holiday region, and balance, updates Notion calendar, sends formatted summaries to HR, and confirms via Slack.",
-    tools: ["n8n", "Notion API", "Remote API", "Slack", "Google Sheets"],
+    title: "Client Onboarding & Project Management Streamline",
+    client: "Digital marketing consultancy with 25+ simultaneous client projects",
+    icon: Users,
+    challenge: "New client onboarding involved 15+ manual steps across multiple platforms. Project kickoffs required creating folders, setting up communication channels, and gathering assets from clients. Each project manager had different processes, leading to inconsistent client experiences.",
+    solution: "Comprehensive client onboarding workflow that creates project workspaces, sets up communication channels, sends branded welcome packages, and automatically schedules kickoff calls. Integrated with project management tools for seamless handoffs.",
+    tools: ["ClickUp", "Slack API", "Google Drive", "Calendly", "DocuSign", "Notion"],
     results: [
-      "Reduced payroll reporting time by 75%",
-      "0 missed leave payouts since automation",
-      "HR NPS improved by 24 points in 1 quarter"
+      "Client onboarding time reduced from 3 days to 2 hours",
+      "98% client satisfaction with onboarding process",
+      "Project managers save 15 hours per new client",
+      "Zero missed onboarding steps since implementation"
     ],
-    quote: "Before Opsie, leave tracking was a blind spot. Now it's so seamless, we're thinking of expanding to reimbursements and asset management.",
-    author: "Ananya T., Head of People @SaaSyBits",
+    quote: "Every client now gets a VIP onboarding experience that used to take our best project manager days to deliver. The consistency and professionalism has elevated our entire brand.",
+    author: "Jennifer Walsh, Founder @Digital Dynamo Agency",
     color: "from-green-100 to-emerald-100",
     iconColor: "text-green-600"
   },
   {
-    title: "WhatsApp Dental Appointment Automation System",
-    client: "Independent dental clinic with 500+ monthly patient appointments",
+    title: "Customer Support Ticket Intelligence System",
+    client: "SaaS platform serving 10,000+ users with 200+ daily support requests",
     icon: MessageSquare,
-    challenge: "Manual appointment booking via phone calls was time-consuming. High no-show rates, missed follow-ups, and staff spending 3+ hours daily on scheduling. Patients struggled with clinic hours for rescheduling.",
-    solution: "AI-powered WhatsApp chatbot with real-time calendar integration. Automated booking, rescheduling, reminders, and digital consent forms. Multilingual support with HIPAA-compliant patient data handling.",
-    tools: ["WhatsApp Business API", "n8n", "Google Calendar", "OpenAI GPT", "Airtable", "Twilio"],
+    challenge: "Support tickets from email, chat, and phone were manually categorized and routed. Urgent issues were buried in general queues, leading to escalations. Knowledge base searches were manual, and response times varied wildly by agent skill level.",
+    solution: "AI-powered ticket triage system that automatically categorizes, prioritizes, and routes tickets to specialized agents. Suggests relevant knowledge base articles, auto-generates draft responses for common issues, and escalates VIP customer requests immediately.",
+    tools: ["Zendesk API", "OpenAI GPT-4", "Slack", "n8n", "Google Analytics", "Intercom"],
     results: [
-      "95% reduction in missed appointments",
-      "60% decrease in administrative phone time",
-      "40% increase in patient satisfaction scores",
-      "24/7 booking availability improved retention by 30%"
+      "Average response time decreased from 4 hours to 12 minutes",
+      "Customer satisfaction scores improved by 48%",
+      "Support team efficiency increased by 75%",
+      "Reduced escalations by 90%"
     ],
-    quote: "Our patients love booking through WhatsApp - it's so convenient. We've practically eliminated no-shows and our staff can focus on patient care instead of endless phone calls.",
-    author: "Dr. Maria Gonzalez, DDS @Bright Smile Dental",
+    quote: "Our customers are amazed by how quickly and accurately we respond now. What used to feel like chaos in our support queue is now a well-oiled machine that actually delights our users.",
+    author: "David Park, Head of Customer Success @CloudFlow Technologies",
     color: "from-orange-100 to-red-100",
     iconColor: "text-orange-600"
   }
