@@ -28,32 +28,32 @@ const CaseStudies = () => {
       
       {/* Header */}
       <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 pt-24">
-        <div className="text-center mb-16 sm:mb-20">
-          <div className="mb-8 flex justify-center">
-            <div className="relative pixel-shadow-hover hover:scale-105 transition-all duration-500 bg-gradient-to-br from-white to-purple-50/50 rounded-2xl p-4 sm:p-6 border border-purple-200/30">
-              <div className="font-sora font-black text-3xl sm:text-5xl bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent tracking-tight">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div className="mb-6 sm:mb-8 flex justify-center">
+            <div className="relative pixel-shadow-hover hover:scale-105 transition-all duration-500 bg-gradient-to-br from-white to-purple-50/50 rounded-2xl p-3 sm:p-4 lg:p-6 border border-purple-200/30">
+              <div className="font-sora font-black text-2xl sm:text-3xl lg:text-5xl bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent tracking-tight">
                 OPSIE
               </div>
-              <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-white" />
+              <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
               </div>
             </div>
           </div>
           
-          <h1 className="font-sora font-bold text-4xl sm:text-5xl md:text-6xl text-midnight-900 mb-6 sm:mb-8 leading-tight">
+          <h1 className="font-sora font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-midnight-900 mb-4 sm:mb-6 lg:mb-8 leading-tight px-2 sm:px-0">
             Case Studies: See What We{" "}
             <span className="bg-gradient-to-r from-primary-500 via-purple-600 to-primary-700 bg-clip-text text-transparent">
               Automate
             </span>
           </h1>
           
-          <p className="text-xl sm:text-2xl text-midnight-600 max-w-4xl mx-auto leading-relaxed mb-8">
+          <p className="text-lg sm:text-xl lg:text-2xl text-midnight-600 max-w-4xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4 sm:px-0">
             Real transformations from companies that automated their operations with Opsie
           </p>
           
-          <div className="flex justify-center">
-            <div className="px-6 py-2 bg-gradient-to-r from-primary-100 to-purple-100 rounded-full border border-primary-200">
-              <span className="text-primary-700 font-semibold text-sm sm:text-base">
+          <div className="flex justify-center px-4 sm:px-0">
+            <div className="px-4 sm:px-6 py-2 bg-gradient-to-r from-primary-100 to-purple-100 rounded-full border border-primary-200">
+              <span className="text-primary-700 font-semibold text-xs sm:text-sm lg:text-base">
                 ✨ Proven results • Real clients • Measurable impact
               </span>
             </div>

@@ -34,22 +34,22 @@ const Hero = () => {
           </div>
 
           {/* Main Headline - Psychology: "Twice" triggers recognition */}
-          <h1 className="font-sora font-bold text-5xl md:text-7xl lg:text-8xl mb-6 text-midnight-900 dark:text-gray-100 leading-tight animate-slide-in transition-colors duration-300">
+          <h1 className="font-sora font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-6 text-midnight-900 dark:text-gray-100 leading-tight animate-slide-in transition-colors duration-300 px-2 sm:px-0">
             For everything you do{" "}
             <span className="bg-gradient-to-r from-primary-500 to-primary-700 dark:from-primary-400 dark:to-primary-600 bg-clip-text text-transparent relative">
               twice
-              <Sparkles className="absolute -top-2 -right-8 w-8 h-8 text-primary-400 dark:text-primary-300 animate-pulse" />
+              <Sparkles className="absolute -top-1 -right-6 sm:-top-2 sm:-right-8 w-6 h-6 sm:w-8 sm:h-8 text-primary-400 dark:text-primary-300 animate-pulse" />
             </span>
           </h1>
 
-          <div className="font-sora font-medium text-2xl md:text-3xl mb-8 text-primary-600 dark:text-primary-400 animate-slide-in transition-colors duration-300" style={{animationDelay: '0.2s'}}>
+          <div className="font-sora font-medium text-xl sm:text-2xl md:text-3xl mb-8 text-primary-600 dark:text-primary-400 animate-slide-in transition-colors duration-300 px-2 sm:px-0" style={{animationDelay: '0.2s'}}>
             —Opsie does it for you.
           </div>
 
           {/* Subtext - Psychology: Green suggests positive outcome */}
-          <p className="text-xl md:text-2xl text-midnight-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-slide-in transition-colors duration-300" style={{animationDelay: '0.4s'}}>
+          <p className="text-lg sm:text-xl md:text-2xl text-midnight-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-slide-in transition-colors duration-300 px-4 sm:px-0" style={{animationDelay: '0.4s'}}>
             No-code automation for SMBs, agencies, and ops teams. 
-            <br />
+            <br className="hidden sm:block" />
             <span className="font-medium text-accent dark:text-emerald-400">Let AI and smart tools do the boring stuff.</span>
           </p>
 
@@ -76,9 +76,9 @@ const Hero = () => {
           </div>
 
           {/* Trust Indicators */}
-          <div className="mt-16 animate-slide-in" style={{animationDelay: '0.8s'}}>
+          <div className="mt-16 animate-slide-in px-4 sm:px-0" style={{animationDelay: '0.8s'}}>
             <p className="text-midnight-500 dark:text-gray-400 mb-6 font-medium transition-colors duration-300">Trusted by teams at</p>
-            <div className="flex justify-center items-center space-x-8 opacity-60 dark:opacity-50">
+            <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 opacity-60 dark:opacity-50">
               <div className="font-sora font-bold text-lg text-midnight-400 dark:text-gray-500">StartupCo</div>
               <div className="font-sora font-bold text-lg text-midnight-400 dark:text-gray-500">AgencyPro</div>
               <div className="font-sora font-bold text-lg text-midnight-400 dark:text-gray-500">ScaleUp</div>
