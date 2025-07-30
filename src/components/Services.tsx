@@ -44,20 +44,20 @@ const Services = () => {
     <section id="services" className="py-16 sm:py-24 bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-gray-900 dark:to-blue-950/20 transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="font-sora font-bold text-3xl sm:text-4xl md:text-5xl text-midnight-900 mb-4 sm:mb-6">
+          <h2 className="font-sora font-bold text-3xl sm:text-4xl md:text-5xl text-midnight-900 mb-4 sm:mb-6 px-2 sm:px-0">
             See What We <span className="text-primary-500">Automate</span>
           </h2>
-          <p className="text-lg sm:text-xl text-midnight-600 max-w-3xl mx-auto mb-6 sm:mb-8">
+          <p className="text-lg sm:text-xl text-midnight-600 max-w-3xl mx-auto mb-6 sm:mb-8 px-4 sm:px-0">
             From team onboarding to payroll sync - we automate the boring stuff so you can focus on growth
           </p>
           <Button 
             onClick={() => navigate('/case-studies')}
             variant="outline"
             size="lg"
-            className="group font-sora font-semibold"
+            className="group font-sora font-semibold text-sm sm:text-base px-4 sm:px-6 py-3 sm:py-4 h-auto"
           >
             View Detailed Case Studies
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
 
@@ -96,20 +96,20 @@ const Services = () => {
 
           {/* CTA Section */}
           <div className="text-center bg-gradient-to-br from-primary-50 to-primary-100/50 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 pixel-shadow">
-            <h3 className="font-sora font-bold text-2xl sm:text-3xl text-midnight-900 mb-3 sm:mb-4">
+            <h3 className="font-sora font-bold text-2xl sm:text-3xl text-midnight-900 mb-3 sm:mb-4 px-2 sm:px-0">
               Ready to See Real Results?
             </h3>
-            <p className="text-base sm:text-lg text-midnight-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-midnight-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-4 sm:px-0">
               Explore our detailed case studies to see exactly how we've helped companies like yours save time and reduce errors
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 sm:px-0">
               <Button 
                 onClick={() => navigate('/case-studies')}
                 size="lg" 
-                className="w-full sm:w-auto bg-primary-500 hover:bg-primary-600 text-white font-sora font-semibold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto pixel-shadow hover:pixel-shadow-hover transition-all duration-300 group"
+                className="w-full sm:w-auto bg-primary-500 hover:bg-primary-600 text-white font-sora font-semibold text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 h-auto pixel-shadow hover:pixel-shadow-hover transition-all duration-300 group"
               >
                 View Case Studies
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               
               <Button 
@@ -121,10 +121,10 @@ const Services = () => {
                 }}
                 variant="outline" 
                 size="lg" 
-                className="w-full sm:w-auto border-2 border-primary-300 text-primary-700 hover:bg-primary-50 font-sora font-medium text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto group"
+                className="w-full sm:w-auto border-2 border-primary-300 text-primary-700 hover:bg-primary-50 font-sora font-medium text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-3 sm:py-4 h-auto group"
               >
                 Get Free Audit
-                <Sparkles className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
+                <Sparkles className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
               </Button>
             </div>
           </div>
