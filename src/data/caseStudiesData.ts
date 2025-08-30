@@ -1,5 +1,5 @@
 
-import { Users, Target, TrendingUp, MessageSquare, LucideIcon } from "lucide-react";
+import { Users, Target, TrendingUp, MessageSquare, Calendar, LucideIcon } from "lucide-react";
 
 export interface CaseStudy {
   title: string;
@@ -87,5 +87,23 @@ export const caseStudies: CaseStudy[] = [
     author: "David Park, Head of Customer Success @CloudFlow Technologies",
     color: "from-orange-100 to-red-100",
     iconColor: "text-orange-600"
+  },
+  {
+    title: "AI-Powered Appointment Booking for Healthcare",
+    client: "Sunrise Dental Clinic, a busy practice managing 200+ weekly appointments",
+    icon: Calendar,
+    challenge: "Receptionists spent nearly 2 hours daily on repetitive booking and cancellation calls. Constant phone ringing led to busy lines during peak hours, patient frustration, and all inquiries after 6 PM were completely missed opportunities. Manual calendar entry occasionally led to scheduling errors and double bookings.",
+    solution: "Deployed AI-powered booking agent directly onto clinic's primary WhatsApp number. The agent provides 24/7 instant responses for end-to-end appointment booking, cancellations, and availability checks. Integrates seamlessly with Google Calendar for real-time updates without manual data entry.",
+    tools: ["WhatsApp API", "Google Gemini", "n8n", "Google Calendar API", "Supabase", "Twilio"],
+    results: [
+      "Staff time spent on scheduling decreased from 80 mins/day to 5 mins/day",
+      "New patient acquisition increased by 15% through capturing after-hours leads",
+      "Staff efficiency and focus on in-person patients increased by 75%",
+      "Scheduling errors eliminated, reducing related escalations by 90%"
+    ],
+    quote: "Our front desk has been transformed. We're capturing bookings at 10 PM on a Sunday. Our team can finally focus on providing excellent care to the patients in front of them instead of being tied to the phone. It's a well-oiled machine that delights our patients.",
+    author: "Dr. Anjali Sharma, Clinic Director @Sunrise Dental",
+    color: "from-teal-100 to-cyan-100",
+    iconColor: "text-teal-600"
   }
 ];
