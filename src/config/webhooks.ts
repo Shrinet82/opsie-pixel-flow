@@ -1,7 +1,7 @@
 
 // Configuration for webhook URLs
 // Add your Google Sheets webhook URL here for form submissions
-export const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbw12VnAfIDyStYxG3McU6UsYIWkARtsxDXukXNuVeLQ_ArCu85-h4ScfuC_M0D-F7zL/exec";
+export const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyO1oXf3s-KBXaiuAkPKGpPZ-XwfmlsH54EB1H9_zINzIHD2gJMziLKiHzbrGn8sVLh/exec";
 
 // To set up Google Sheets integration:
 // 1. Create a Google Apps Script with a doPost function
