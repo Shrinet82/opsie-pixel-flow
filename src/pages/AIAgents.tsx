@@ -275,7 +275,7 @@ const AIAgents = () => {
               <span className="text-primary-600 dark:text-primary-400 block">Your Front Desk?</span>
             </h2>
             <p className="text-xl text-midnight-600 dark:text-gray-300 mb-8 leading-relaxed">
-              Get a personalized demo and a 14-day free trial. We'll handle the entire setup for you.
+              Get a personalized demo and see how we can transform your clinic. We'll handle the entire setup for you.
             </p>
             <Button 
               size="lg" 

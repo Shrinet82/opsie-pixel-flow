@@ -84,7 +84,7 @@ const Navigation = () => {
               className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors relative"
             >
               AI Agents
-              <span className="absolute -top-1 -right-2 bg-accent text-white text-xs px-1.5 py-0.5 rounded-full font-bold">
+              <span className="absolute -top-0.5 -right-1 bg-accent text-white text-[10px] px-1 py-0.5 rounded-full font-bold leading-none">
                 NEW
               </span>
             </button>
@@ -138,7 +138,7 @@ const Navigation = () => {
                 className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors relative inline-flex items-center"
               >
                 AI Agents
-                <span className="ml-2 bg-accent text-white text-xs px-1.5 py-0.5 rounded-full font-bold">
+                <span className="ml-2 bg-accent text-white text-[10px] px-1 py-0.5 rounded-full font-bold leading-none">
                   NEW
                 </span>
               </button>
