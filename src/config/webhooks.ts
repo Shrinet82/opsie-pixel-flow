@@ -1,7 +1,7 @@
 
 // Configuration for webhook URLs
 // Add your Google Sheets webhook URL here for form submissions
-export const GOOGLE_SHEETS_WEBHOOK_URL = "";
+export const GOOGLE_SHEETS_WEBHOOK_URL = "https://docs.google.com/spreadsheets/d/1LfAvQD4yqt4S1p27ws0VNGVtlr_-nu6phJkhSni2Lzc/edit?usp=sharing";
 
 // To set up Google Sheets integration:
 // 1. Create a Google Apps Script with a doPost function
