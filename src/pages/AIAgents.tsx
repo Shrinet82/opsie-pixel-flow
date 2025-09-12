@@ -156,26 +156,26 @@ const AIAgents = () => {
             <Card className="overflow-hidden neo-card">
               <CardContent className="p-0">
                 <div className="aspect-video bg-black relative">
-                  {/* Replace this src with your actual video URL */}
+                  {/* Direct video file */}
+                  <video 
+                    controls 
+                    className="w-full h-full object-cover"
+                    poster="/videos/ai-agent-thumbnail.jpg"
+                  >
+                    <source src="/videos/ai-agent-demo.mp4" type="video/mp4" />
+                    <source src="/videos/ai-agent-demo.webm" type="video/webm" />
+                    Your browser does not support the video tag.
+                  </video>
+                  
+                  {/* For YouTube/Vimeo embed, use this instead */}
+                  {/* 
                   <iframe
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
                     title="AI Agent Demo Video"
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
-                  
-                  {/* Alternative: For direct video files, uncomment below and comment out iframe */}
-                  {/* 
-                  <video 
-                    controls 
-                    className="w-full h-full object-cover"
-                    poster="/path-to-your-video-thumbnail.jpg"
-                  >
-                    <source src="/path-to-your-video.mp4" type="video/mp4" />
-                    <source src="/path-to-your-video.webm" type="video/webm" />
-                    Your browser does not support the video tag.
-                  </video>
                   */}
                 </div>
               </CardContent>
