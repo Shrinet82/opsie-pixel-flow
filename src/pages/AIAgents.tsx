@@ -145,7 +145,7 @@ const AIAgents = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-sora font-bold text-midnight-900 dark:text-white mb-4">
               See It In Action
-              <span className="text-primary-600 dark:text-primary-400 ml-2">(90-Second Demo)</span>
+              <span className="text-primary-600 dark:text-primary-400 ml-2">(Short Demo)</span>
             </h2>
             <p className="text-lg text-midnight-600 dark:text-gray-300 max-w-2xl mx-auto">
               Watch the entire flow: a person messaging WhatsApp, the AI responding, and the appointment appearing on Google Calendar. Fast and compelling.
@@ -166,13 +166,6 @@ const AIAgents = () => {
                 </div>
               </CardContent>
             </Card>
-            
-            {/* Video description */}
-            <div className="text-center mt-6">
-              <p className="text-midnight-600 dark:text-gray-400 text-sm">
-                📹 Replace the YouTube URL above with your actual demo video
-              </p>
-            </div>
           </div>
         </div>
       </section>
