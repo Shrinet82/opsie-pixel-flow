@@ -152,23 +152,41 @@ const AIAgents = () => {
             </p>
           </div>
           
-          {/* Placeholder for video - replace with actual video component */}
           <div className="max-w-4xl mx-auto">
             <Card className="overflow-hidden neo-card">
               <CardContent className="p-0">
-                <div className="aspect-video bg-gradient-to-br from-primary-100 to-accent-100 dark:from-midnight-800 dark:to-midnight-700 flex items-center justify-center">
-                  <div className="text-center">
-                    <Play className="w-16 h-16 text-primary-600 dark:text-primary-400 mx-auto mb-4" />
-                    <p className="text-lg font-semibold text-midnight-700 dark:text-gray-300">
-                      Video Demo Coming Soon
-                    </p>
-                    <p className="text-midnight-600 dark:text-gray-400">
-                      Watch the AI agent in action
-                    </p>
-                  </div>
+                <div className="aspect-video bg-black relative">
+                  {/* Replace this src with your actual video URL */}
+                  <iframe
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="AI Agent Demo Video"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                  
+                  {/* Alternative: For direct video files, uncomment below and comment out iframe */}
+                  {/* 
+                  <video 
+                    controls 
+                    className="w-full h-full object-cover"
+                    poster="/path-to-your-video-thumbnail.jpg"
+                  >
+                    <source src="/path-to-your-video.mp4" type="video/mp4" />
+                    <source src="/path-to-your-video.webm" type="video/webm" />
+                    Your browser does not support the video tag.
+                  </video>
+                  */}
                 </div>
               </CardContent>
             </Card>
+            
+            {/* Video description */}
+            <div className="text-center mt-6">
+              <p className="text-midnight-600 dark:text-gray-400 text-sm">
+                📹 Replace the YouTube URL above with your actual demo video
+              </p>
+            </div>
           </div>
         </div>
       </section>
