@@ -2,21 +2,9 @@ import { Bot, Play, CheckCircle, MessageSquare, Calendar, ChevronRight } from "l
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
-import { GOOGLE_SHEETS_WEBHOOK_URL } from "@/config/webhooks";
+import Contact from "@/components/Contact";
 
 const AIAgents = () => {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    clinicName: "",
-    phone: "",
-    currentBookingMethod: "",
-  });
-
   const scrollToDemo = () => {
     const demoSection = document.getElementById('demo');
     if (demoSection) {
@@ -28,71 +16,6 @@ const AIAgents = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const submissionData = {
-        timestamp: new Date().toISOString(),
-        name: formData.name,
-        email: formData.email,
-        clinicName: formData.clinicName,
-        phone: formData.phone,
-        currentBookingMethod: formData.currentBookingMethod,
-        source: "AI Agents Page",
-        type: "AI Agent Demo Request"
-      };
-
-      if (GOOGLE_SHEETS_WEBHOOK_URL) {
-        await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(submissionData),
-        });
-
-        toast({
-          title: "Demo Request Sent!",
-          description: "We'll be in touch within 24 hours to schedule your personalized demo.",
-        });
-      } else {
-        toast({
-          title: "Demo Request Received!",
-          description: "We'll be in touch soon to schedule your personalized demo.",
-        });
-      }
-
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        clinicName: "",
-        phone: "",
-        currentBookingMethod: "",
-      });
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast({
-        title: "Error",
-        description: "There was an issue submitting your request. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -341,129 +264,7 @@ const AIAgents = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-50 to-accent-50/20 dark:from-midnight-900 dark:to-midnight-800">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-sora font-bold text-midnight-900 dark:text-white mb-6">
-                Ready to Upgrade
-                <span className="text-primary-600 dark:text-primary-400 block">Your Front Desk?</span>
-              </h2>
-              <p className="text-xl text-midnight-600 dark:text-gray-300 leading-relaxed">
-                Get a personalized demo and see how we can transform your clinic. We'll handle the entire setup for you.
-              </p>
-            </div>
-            
-            <div className="bg-white dark:bg-midnight-800 rounded-2xl shadow-xl p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-midnight-700 dark:text-gray-300 mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-midnight-700 dark:text-white"
-                      placeholder="Dr. Sarah Johnson"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-midnight-700 dark:text-gray-300 mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-midnight-700 dark:text-white"
-                      placeholder="sarah@dentalclinic.com"
-                    />
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="clinicName" className="block text-sm font-medium text-midnight-700 dark:text-gray-300 mb-2">
-                      Clinic Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="clinicName"
-                      name="clinicName"
-                      required
-                      value={formData.clinicName}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-midnight-700 dark:text-white"
-                      placeholder="Smile Dental Clinic"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-midnight-700 dark:text-gray-300 mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-midnight-700 dark:text-white"
-                      placeholder="+1 (555) 123-4567"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="currentBookingMethod" className="block text-sm font-medium text-midnight-700 dark:text-gray-300 mb-2">
-                    How do patients currently book appointments?
-                  </label>
-                  <textarea
-                    id="currentBookingMethod"
-                    name="currentBookingMethod"
-                    rows={3}
-                    value={formData.currentBookingMethod}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-midnight-700 dark:text-white"
-                    placeholder="Phone calls, online portal, walk-ins..."
-                  />
-                </div>
-                
-                <div className="text-center">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="inline-flex items-center px-8 py-4 bg-primary-500 hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700 text-white text-lg font-semibold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Schedule My Free Demo
-                        <ChevronRight className="w-5 h-5 ml-2" />
-                      </>
-                    )}
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Contact />
     </div>
   );
 };
