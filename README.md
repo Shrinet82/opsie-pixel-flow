@@ -1,4 +1,3 @@
-
 # OPSIE - Automation Solutions Platform
 
 Welcome to **OPSIE**, a cutting-edge automation solutions platform that helps SMBs, agencies, and ops teams streamline their workflows using no-code automation and AI-powered tools.
@@ -8,19 +7,22 @@ Welcome to **OPSIE**, a cutting-edge automation solutions platform that helps SM
 ### Prerequisites
 
 Before you begin, ensure you have the following installed:
-- **Node.js** (v16 or higher) - [Download from nodejs.org](https://nodejs.org/)
+
+- **Node.js** (v18 or higher) - [Download from nodejs.org](https://nodejs.org/)
 - **npm** (comes with Node.js) or **yarn** package manager
 - **Git** for version control
 
 ### Local Development Setup
 
 1. **Clone the repository**
+
    ```bash
    git clone <YOUR_GIT_URL>
-   cd opsie-automation-platform
+   cd opsie-pixel-flow
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    # or
@@ -28,6 +30,7 @@ Before you begin, ensure you have the following installed:
    ```
 
 3. **Start the development server**
+
    ```bash
    npm run dev
    # or
@@ -35,7 +38,7 @@ Before you begin, ensure you have the following installed:
    ```
 
 4. **Open your browser**
-   Navigate to `http://localhost:5173` to view the application
+   Navigate to `http://localhost:8080` to view the application
 
 ## 🛠️ Technology Stack
 
@@ -77,42 +80,52 @@ opsie-automation-platform/
 In the project directory, you can run:
 
 ### Development
+
 - `npm run dev` - Starts the development server with hot reload
 - `npm run build` - Creates an optimized production build
 - `npm run preview` - Preview the production build locally
 - `npm run lint` - Run ESLint to check code quality
 
 ### Production Build
+
 ```bash
 npm run build
 ```
+
 This creates a `dist/` folder with optimized files ready for deployment.
 
 ## 🌐 Deployment Options
 
 ### Option 1: Lovable Platform (Recommended)
+
 The easiest way to deploy is through Lovable:
+
 1. Visit your [Lovable Project Dashboard](https://lovable.dev/projects/a14db114-7f39-4660-8827-deb9f356435c)
 2. Click "Share" → "Publish"
 3. Your app will be live at `https://your-project.lovable.app`
 
 ### Option 2: Vercel (Popular Choice)
+
 1. Install Vercel CLI: `npm i -g vercel`
 2. Run `vercel` in your project directory
 3. Follow the prompts to deploy
 
 ### Option 3: Netlify
+
 1. Build the project: `npm run build`
 2. Drag and drop the `dist/` folder to [Netlify Drop](https://app.netlify.com/drop)
 3. Or connect your GitHub repository for automatic deployments
 
 ### Option 4: Traditional Web Hosting
+
 1. Build the project: `npm run build`
 2. Upload the contents of the `dist/` folder to your web server
 3. Configure your server to serve `index.html` for all routes (for SPA routing)
 
 ### Option 5: Docker Deployment
+
 Create a `Dockerfile`:
+
 ```dockerfile
 FROM node:18-alpine AS builder
 WORKDIR /app
@@ -129,6 +142,7 @@ CMD ["nginx", "-g", "daemon off;"]
 ```
 
 ### Option 6: GitHub Pages
+
 1. Install gh-pages: `npm install --save-dev gh-pages`
 2. Add to package.json scripts: `"deploy": "gh-pages -d dist"`
 3. Build and deploy: `npm run build && npm run deploy`
@@ -136,12 +150,15 @@ CMD ["nginx", "-g", "daemon off;"]
 ## ⚙️ Environment Configuration
 
 ### Environment Variables
+
 Create a `.env` file in the root directory for environment-specific configurations:
 
 ```env
-# API Configuration
-VITE_API_BASE_URL=https://api.opsie.com
-VITE_CONTACT_EMAIL=hello@opsie.com
+# Contact API
+VITE_CONTACT_API_URL=/api/contact
+
+# Server-side webhook for contact form (set in Vercel project settings)
+GOOGLE_SHEETS_WEBHOOK_URL=https://script.google.com/macros/s/your-script-id/exec
 
 # Analytics (optional)
 VITE_GA_TRACKING_ID=your-google-analytics-id
@@ -157,11 +174,13 @@ VITE_ENABLE_BOOKING=true
 ## 🎨 Customization
 
 ### Styling
+
 - **Colors**: Modify `tailwind.config.ts` to change the color scheme
 - **Fonts**: Update font imports in `src/index.css`
 - **Components**: Customize shadcn/ui components in `src/components/ui/`
 
 ### Content
+
 - **Hero Section**: Edit `src/components/Hero.tsx`
 - **Case Studies**: Update `src/pages/CaseStudies.tsx`
 - **Services**: Modify `src/components/Services.tsx`
@@ -171,6 +190,7 @@ VITE_ENABLE_BOOKING=true
 ### Common Issues
 
 **Build Errors**
+
 ```bash
 # Clear node_modules and reinstall
 rm -rf node_modules package-lock.json
@@ -178,6 +198,7 @@ npm install
 ```
 
 **Port Already in Use**
+
 ```bash
 # Kill process on port 5173
 lsof -ti:5173 | xargs kill -9
@@ -186,6 +207,7 @@ npm run dev -- --port 3000
 ```
 
 **TypeScript Errors**
+
 ```bash
 # Check for type issues
 npm run type-check
@@ -194,11 +216,13 @@ npm run type-check
 ## 📊 Performance Optimization
 
 ### Production Optimizations
+
 - **Code Splitting**: Automatic with Vite and React Router
 - **Asset Optimization**: Images and CSS are automatically optimized
 - **Bundle Analysis**: Run `npm run build -- --analyze` to see bundle size
 
 ### SEO Optimization
+
 - Update `index.html` with proper meta tags
 - Add structured data for better search visibility
 - Implement proper Open Graph tags
@@ -234,6 +258,7 @@ Need help? Here are your options:
 ## 🎯 Roadmap
 
 ### Upcoming Features
+
 - [ ] Multi-language support
 - [ ] Advanced analytics dashboard
 - [ ] Integration with more automation tools

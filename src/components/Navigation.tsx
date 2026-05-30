@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -11,18 +10,12 @@ const Navigation = () => {
 
   const scrollToSection = (sectionId: string) => {
     // If we're not on the home page, navigate to home first
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: sectionId } });
     } else {
       const section = document.getElementById(sectionId);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        section.scrollIntoView({ behavior: "smooth" });
       }
     }
     setIsMenuOpen(false);
@@ -30,18 +23,12 @@ const Navigation = () => {
 
   const scrollToContact = () => {
     // If we're not on the home page, navigate to home first
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: "contact" } });
     } else {
-      const contactSection = document.getElementById('contact');
+      const contactSection = document.getElementById("contact");
       if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
+        contactSection.scrollIntoView({ behavior: "smooth" });
       }
     }
     setIsMenuOpen(false);
@@ -52,8 +39,8 @@ const Navigation = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div 
-            onClick={() => navigate('/')}
+          <div
+            onClick={() => navigate("/")}
             className="font-sora font-black text-2xl text-primary-600 dark:text-primary-400 cursor-pointer hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
           >
             OPSIE
@@ -62,34 +49,40 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <button
-              onClick={() => scrollToSection('how-it-works')}
+              onClick={() => scrollToSection("how-it-works")}
               className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
             >
               How It Works
             </button>
             <button
-              onClick={() => scrollToSection('services')}
+              onClick={() => scrollToSection("services")}
               className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
             >
               Services
             </button>
             <button
-              onClick={() => navigate('/case-studies')}
-              className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
-            >
-              Case Studies
-            </button>
-            <button
-              onClick={() => navigate('/ai-agents')}
+              onClick={() => navigate("/sentra")}
               className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors relative"
             >
-              AI Agents
+              Sentra
               <span className="absolute -top-0.5 -right-1 bg-accent text-white text-[10px] px-1 py-0.5 rounded-full font-bold leading-none">
                 NEW
               </span>
             </button>
             <button
-              onClick={() => navigate('/faq')}
+              onClick={() => navigate("/case-studies")}
+              className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
+            >
+              Case Studies
+            </button>
+            <button
+              onClick={() => navigate("/ai-agents")}
+              className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
+            >
+              AI Agents
+            </button>
+            <button
+              onClick={() => navigate("/faq")}
               className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
             >
               FAQ
@@ -107,7 +100,11 @@ const Navigation = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
 
@@ -116,34 +113,40 @@ const Navigation = () => {
           <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex flex-col space-y-4">
               <button
-                onClick={() => scrollToSection('how-it-works')}
+                onClick={() => scrollToSection("how-it-works")}
                 className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
               >
                 How It Works
               </button>
               <button
-                onClick={() => scrollToSection('services')}
+                onClick={() => scrollToSection("services")}
                 className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
               >
                 Services
               </button>
               <button
-                onClick={() => navigate('/case-studies')}
-                className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
-              >
-                Case Studies
-              </button>
-              <button
-                onClick={() => navigate('/ai-agents')}
+                onClick={() => navigate("/sentra")}
                 className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors relative inline-flex items-center"
               >
-                AI Agents
+                Sentra
                 <span className="ml-2 bg-accent text-white text-[10px] px-1 py-0.5 rounded-full font-bold leading-none">
                   NEW
                 </span>
               </button>
               <button
-                onClick={() => navigate('/faq')}
+                onClick={() => navigate("/case-studies")}
+                className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
+              >
+                Case Studies
+              </button>
+              <button
+                onClick={() => navigate("/ai-agents")}
+                className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
+              >
+                AI Agents
+              </button>
+              <button
+                onClick={() => navigate("/faq")}
                 className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
               >
                 FAQ

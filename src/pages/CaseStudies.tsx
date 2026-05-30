@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -13,19 +12,13 @@ const CaseStudies = () => {
   const navigate = useNavigate();
 
   const scrollToContact = () => {
-    navigate('/');
-    setTimeout(() => {
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    navigate("/", { state: { scrollTo: "contact" } });
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50/30 to-blue-50/20 bg-pixel-pattern">
       <Navigation />
-      
+
       {/* Header */}
       <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 pt-24">
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
@@ -39,18 +32,19 @@ const CaseStudies = () => {
               </div>
             </div>
           </div>
-          
+
           <h1 className="font-sora font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-midnight-900 mb-4 sm:mb-6 lg:mb-8 leading-tight px-2 sm:px-0">
             Case Studies: See What We{" "}
             <span className="bg-gradient-to-r from-primary-500 via-purple-600 to-primary-700 bg-clip-text text-transparent">
               Automate
             </span>
           </h1>
-          
+
           <p className="text-lg sm:text-xl lg:text-2xl text-midnight-600 max-w-4xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4 sm:px-0">
-            Real transformations from companies that automated their operations with Opsie
+            Real transformations from companies that automated their operations
+            with Opsie
           </p>
-          
+
           <div className="flex justify-center px-4 sm:px-0">
             <div className="px-4 sm:px-6 py-2 bg-gradient-to-r from-primary-100 to-purple-100 rounded-full border border-primary-200">
               <span className="text-primary-700 font-semibold text-xs sm:text-sm lg:text-base">
@@ -62,14 +56,14 @@ const CaseStudies = () => {
 
         {/* Main Content */}
         <div className="max-w-7xl mx-auto">
-          <CaseStudyNavigation 
+          <CaseStudyNavigation
             caseStudies={caseStudies}
             activeCase={activeCase}
             onCaseSelect={setActiveCase}
           />
-          
+
           <CaseStudyDetails caseStudy={caseStudies[activeCase]} />
-          
+
           <CaseStudyCTA onContactClick={scrollToContact} />
         </div>
       </div>

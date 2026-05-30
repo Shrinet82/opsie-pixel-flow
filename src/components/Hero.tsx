@@ -6,9 +6,9 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
+    const contactSection = document.getElementById("contact");
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -16,10 +16,22 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/30 to-blue-50/20 dark:from-gray-900 dark:via-purple-950/50 dark:to-blue-950/30 bg-pixel-pattern transition-colors duration-300 pt-16">
       {/* Floating Elements - Psychology: Subtle movement creates engagement */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-20 w-12 h-12 bg-primary/20 dark:bg-primary/30 rounded-lg animate-float" style={{animationDelay: '0s'}} />
-        <div className="absolute top-40 right-32 w-8 h-8 bg-accent/30 dark:bg-accent/40 rounded-lg animate-float" style={{animationDelay: '1s'}} />
-        <div className="absolute bottom-32 left-32 w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-lg animate-float" style={{animationDelay: '2s'}} />
-        <div className="absolute bottom-20 right-20 w-6 h-6 bg-accent/20 dark:bg-accent/30 rounded-lg animate-float" style={{animationDelay: '0.5s'}} />
+        <div
+          className="absolute top-20 left-20 w-12 h-12 bg-primary/20 dark:bg-primary/30 rounded-lg animate-float"
+          style={{ animationDelay: "0s" }}
+        />
+        <div
+          className="absolute top-40 right-32 w-8 h-8 bg-accent/30 dark:bg-accent/40 rounded-lg animate-float"
+          style={{ animationDelay: "1s" }}
+        />
+        <div
+          className="absolute bottom-32 left-32 w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-lg animate-float"
+          style={{ animationDelay: "2s" }}
+        />
+        <div
+          className="absolute bottom-20 right-20 w-6 h-6 bg-accent/20 dark:bg-accent/30 rounded-lg animate-float"
+          style={{ animationDelay: "0.5s" }}
+        />
       </div>
 
       <div className="container mx-auto px-6 z-10">
@@ -42,46 +54,68 @@ const Hero = () => {
             </span>
           </h1>
 
-          <div className="font-sora font-medium text-xl sm:text-2xl md:text-3xl mb-8 text-primary-600 dark:text-primary-400 animate-slide-in transition-colors duration-300 px-2 sm:px-0" style={{animationDelay: '0.2s'}}>
+          <div
+            className="font-sora font-medium text-xl sm:text-2xl md:text-3xl mb-8 text-primary-600 dark:text-primary-400 animate-slide-in transition-colors duration-300 px-2 sm:px-0"
+            style={{ animationDelay: "0.2s" }}
+          >
             —Opsie does it for you.
           </div>
 
           {/* Subtext - Psychology: Green suggests positive outcome */}
-          <p className="text-lg sm:text-xl md:text-2xl text-midnight-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-slide-in transition-colors duration-300 px-4 sm:px-0" style={{animationDelay: '0.4s'}}>
-            No-code automation for SMBs, agencies, and ops teams. 
+          <p
+            className="text-lg sm:text-xl md:text-2xl text-midnight-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-slide-in transition-colors duration-300 px-4 sm:px-0"
+            style={{ animationDelay: "0.4s" }}
+          >
+            No-code automation for SMBs, agencies, and ops teams.
             <br className="hidden sm:block" />
-            <span className="font-medium text-accent dark:text-emerald-400">Let AI and smart tools do the boring stuff.</span>
+            <span className="font-medium text-accent dark:text-emerald-400">
+              Let AI and smart tools do the boring stuff.
+            </span>
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-in" style={{animationDelay: '0.6s'}}>
-            <Button 
+          <div
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-in"
+            style={{ animationDelay: "0.6s" }}
+          >
+            <Button
               onClick={scrollToContact}
-              size="lg" 
+              size="lg"
               className="bg-primary-500 hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700 text-white font-sora font-semibold text-lg px-8 py-4 h-auto pixel-shadow hover:pixel-shadow-hover transition-all duration-300 group"
             >
               Contact Us
               <Zap className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform text-emerald-400 dark:text-emerald-300" />
             </Button>
-            
-            <Button 
-              onClick={() => navigate('/case-studies')}
-              variant="outline" 
-              size="lg" 
+
+            <Button
+              onClick={() => navigate("/sentra")}
+              variant="outline"
+              size="lg"
               className="border-2 border-primary-300 dark:border-primary-500 text-primary-700 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-primary-950/50 font-sora font-medium text-lg px-8 py-4 h-auto group transition-all duration-300"
             >
-              See What We Automate
+              Explore Sentra
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
 
           {/* Trust Indicators */}
-          <div className="mt-16 animate-slide-in px-4 sm:px-0" style={{animationDelay: '0.8s'}}>
-            <p className="text-midnight-500 dark:text-gray-400 mb-6 font-medium transition-colors duration-300">Trusted by teams at</p>
+          <div
+            className="mt-16 animate-slide-in px-4 sm:px-0"
+            style={{ animationDelay: "0.8s" }}
+          >
+            <p className="text-midnight-500 dark:text-gray-400 mb-6 font-medium transition-colors duration-300">
+              Trusted by teams at
+            </p>
             <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 opacity-60 dark:opacity-50">
-              <div className="font-sora font-bold text-lg text-midnight-400 dark:text-gray-500">StartupCo</div>
-              <div className="font-sora font-bold text-lg text-midnight-400 dark:text-gray-500">AgencyPro</div>
-              <div className="font-sora font-bold text-lg text-midnight-400 dark:text-gray-500">ScaleUp</div>
+              <div className="font-sora font-bold text-lg text-midnight-400 dark:text-gray-500">
+                StartupCo
+              </div>
+              <div className="font-sora font-bold text-lg text-midnight-400 dark:text-gray-500">
+                AgencyPro
+              </div>
+              <div className="font-sora font-bold text-lg text-midnight-400 dark:text-gray-500">
+                ScaleUp
+              </div>
             </div>
           </div>
         </div>
