@@ -62,10 +62,10 @@ const Navigation = () => {
             </button>
             <button
               onClick={() => navigate("/sentra")}
-              className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors relative"
+              className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors inline-flex items-center"
             >
               Sentra
-              <span className="absolute -top-0.5 -right-1 bg-accent text-white text-[10px] px-1 py-0.5 rounded-full font-bold leading-none">
+              <span className="ml-2 bg-accent text-white text-[10px] px-1 py-0.5 rounded-full font-bold leading-none">
                 NEW
               </span>
             </button>
