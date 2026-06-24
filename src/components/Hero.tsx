@@ -40,7 +40,7 @@ const Hero = () => {
           <div className="mb-8 flex justify-center">
             <div className="pixel-shadow hover:pixel-shadow-hover transition-all duration-300 bg-white dark:bg-gray-800 rounded-lg p-4">
               <div className="font-sora font-black text-4xl text-primary-600 dark:text-primary-400 tracking-tight">
-                OPSIE
+                OOPSIE
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@ const Hero = () => {
             className="font-sora font-medium text-xl sm:text-2xl md:text-3xl mb-8 text-primary-600 dark:text-primary-400 animate-slide-in transition-colors duration-300 px-2 sm:px-0"
             style={{ animationDelay: "0.2s" }}
           >
-            —Opsie does it for you.
+            —Oopsie does it for you.
           </div>
 
           {/* Subtext - Psychology: Green suggests positive outcome */}
@@ -98,26 +98,6 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Trust Indicators */}
-          <div
-            className="mt-16 animate-slide-in px-4 sm:px-0"
-            style={{ animationDelay: "0.8s" }}
-          >
-            <p className="text-midnight-500 dark:text-gray-400 mb-6 font-medium transition-colors duration-300">
-              Trusted by teams at
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 opacity-60 dark:opacity-50">
-              <div className="font-sora font-bold text-lg text-midnight-400 dark:text-gray-500">
-                StartupCo
-              </div>
-              <div className="font-sora font-bold text-lg text-midnight-400 dark:text-gray-500">
-                AgencyPro
-              </div>
-              <div className="font-sora font-bold text-lg text-midnight-400 dark:text-gray-500">
-                ScaleUp
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

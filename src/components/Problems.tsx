@@ -25,7 +25,7 @@ const Problems = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-sora font-bold text-4xl md:text-5xl text-midnight-900 mb-6">
-            What Opsie <span className="text-primary-500">Fixes</span>
+            What Oopsie <span className="text-primary-500">Fixes</span>
           </h2>
           <p className="text-xl text-midnight-600 max-w-2xl mx-auto">
             Stop wasting time on repetitive tasks that should have been automated yesterday

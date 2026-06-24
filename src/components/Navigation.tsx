@@ -43,7 +43,7 @@ const Navigation = () => {
             onClick={() => navigate("/")}
             className="font-sora font-black text-2xl text-primary-600 dark:text-primary-400 cursor-pointer hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
           >
-            OPSIE
+            OOPSIE
           </div>
 
           {/* Desktop Navigation */}

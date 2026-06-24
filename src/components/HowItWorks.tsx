@@ -33,7 +33,7 @@ const HowItWorks = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-sora font-bold text-4xl md:text-5xl text-midnight-900 mb-6">
-            How Opsie <span className="text-primary-500">Works</span>
+            How Oopsie <span className="text-primary-500">Works</span>
           </h2>
           <p className="text-xl text-midnight-600 max-w-2xl mx-auto">
             From pain point to automation in three simple steps

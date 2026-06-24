@@ -4,7 +4,7 @@ import Problems from "@/components/Problems";
 import HowItWorks from "@/components/HowItWorks";
 import Services from "@/components/Services";
 import Tools from "@/components/Tools";
-import WhyOpsie from "@/components/WhyOpsie";
+import WhyOopsie from "@/components/WhyOopsie";
 import CTA from "@/components/CTA";
 import Contact from "@/components/Contact";
 import { useRouteSectionScroll } from "@/hooks/use-route-section-scroll";
@@ -12,7 +12,7 @@ import { useRouteSectionScroll } from "@/hooks/use-route-section-scroll";
 const Index = () => {
   useRouteSectionScroll();
 
-  const siteUrl = "https://www.opsie.tech";
+  const siteUrl = "https://www.oopsie.tech";
 
   return (
     <div className="min-h-screen">
@@ -23,7 +23,7 @@ const Index = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            name: "Opsie",
+            name: "Oopsie",
             description:
               "No-code automation for SMBs, agencies, and ops teams. Let AI and smart tools do the boring stuff.",
             url: siteUrl,
@@ -41,7 +41,7 @@ const Index = () => {
                 "Automated workflows and business process optimization using no-code tools",
               provider: {
                 "@type": "Organization",
-                name: "Opsie",
+                name: "Oopsie",
               },
             },
           }),
@@ -54,7 +54,7 @@ const Index = () => {
       <HowItWorks />
       <Services />
       <Tools />
-      <WhyOpsie />
+      <WhyOopsie />
       <CTA />
       <Contact />
     </div>

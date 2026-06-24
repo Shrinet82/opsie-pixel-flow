@@ -27,9 +27,9 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "What types of tasks can Opsie automate?",
+      question: "What types of tasks can Oopsie automate?",
       answer:
-        "Opsie can automate repetitive business processes like data entry, email workflows, social media posting, report generation, customer onboarding, lead qualification, invoice processing, and much more. If you're doing it manually more than once, we can likely automate it.",
+        "Oopsie can automate repetitive business processes like data entry, email workflows, social media posting, report generation, customer onboarding, lead qualification, invoice processing, and much more. If you're doing it manually more than once, we can likely automate it.",
     },
     {
       question: "How long does it take to implement an automation?",
@@ -83,7 +83,7 @@ const FAQ = () => {
               </span>
             </h2>
             <p className="text-lg sm:text-xl text-midnight-600 dark:text-gray-300 transition-colors duration-300">
-              Everything you need to know about business automation with Opsie
+              Everything you need to know about business automation with Oopsie
             </p>
           </div>
 

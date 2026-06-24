@@ -25,7 +25,7 @@ const CaseStudies = () => {
           <div className="mb-6 sm:mb-8 flex justify-center">
             <div className="relative pixel-shadow-hover hover:scale-105 transition-all duration-500 bg-gradient-to-br from-white to-purple-50/50 rounded-2xl p-3 sm:p-4 lg:p-6 border border-purple-200/30">
               <div className="font-sora font-black text-2xl sm:text-3xl lg:text-5xl bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent tracking-tight">
-                OPSIE
+                OOPSIE
               </div>
               <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
                 <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
@@ -42,7 +42,7 @@ const CaseStudies = () => {
 
           <p className="text-lg sm:text-xl lg:text-2xl text-midnight-600 max-w-4xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4 sm:px-0">
             Real transformations from companies that automated their operations
-            with Opsie
+            with Oopsie
           </p>
 
           <div className="flex justify-center px-4 sm:px-0">

@@ -30,7 +30,7 @@ const CaseStudyCTA = ({ onContactClick }: CaseStudyCTAProps) => {
           </h2>
           
           <p className="text-xl sm:text-2xl text-white/95 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
-            Let's discuss how Opsie can transform your repetitive tasks into automated workflows that save time and reduce errors
+            Let's discuss how Oopsie can transform your repetitive tasks into automated workflows that save time and reduce errors
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

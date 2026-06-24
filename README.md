@@ -1,6 +1,6 @@
-# OPSIE - Automation Solutions Platform
+# OOPSIE - Automation Solutions Platform
 
-Welcome to **OPSIE**, a cutting-edge automation solutions platform that helps SMBs, agencies, and ops teams streamline their workflows using no-code automation and AI-powered tools.
+Welcome to **OOPSIE**, a cutting-edge automation solutions platform that helps SMBs, agencies, and ops teams streamline their workflows using no-code automation and AI-powered tools.
 
 ## 🚀 Quick Start
 
@@ -18,7 +18,7 @@ Before you begin, ensure you have the following installed:
 
    ```bash
    git clone <YOUR_GIT_URL>
-   cd opsie-pixel-flow
+   cd oopsie-pixel-flow
    ```
 
 2. **Install dependencies**
@@ -56,7 +56,7 @@ This project is built with modern web technologies:
 ## 📁 Project Structure
 
 ```
-opsie-automation-platform/
+oopsie-automation-platform/
 ├── public/                 # Static assets
 ├── src/
 │   ├── components/         # Reusable UI components

@@ -44,7 +44,7 @@ const CTA = () => {
           
           {/* Psychology: Green suggests growth and positive outcome */}
           <p className="text-lg sm:text-xl md:text-2xl text-white/95 dark:text-gray-200/90 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed">
-            Let Opsie automate it and give you your{" "}
+            Let Oopsie automate it and give you your{" "}
             <span className="text-emerald-300 dark:text-emerald-200 font-semibold">life back</span>
           </p>
 

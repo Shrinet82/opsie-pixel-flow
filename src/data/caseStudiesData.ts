@@ -29,7 +29,7 @@ export const caseStudies: CaseStudy[] = [
       "Customer satisfaction increased by 35%",
       "Freed up 30 hours/week for strategic tasks"
     ],
-    quote: "Opsie transformed our chaotic order management into a smooth, automated machine. We went from constantly firefighting to actually growing our business.",
+    quote: "Oopsie transformed our chaotic order management into a smooth, automated machine. We went from constantly firefighting to actually growing our business.",
     author: "Sarah Chen, COO @StyleFlow Boutique",
     color: "from-blue-100 to-cyan-100",
     iconColor: "text-blue-600"

@@ -44,7 +44,7 @@ const Contact = () => {
       toast({
         title: "You're in! 🛠️",
         description:
-          "Your automation brief is in. Opsie will get back within 24 hours.",
+          "Your automation brief is in. Oopsie will get back within 24 hours.",
         duration: 5000,
       });
 
