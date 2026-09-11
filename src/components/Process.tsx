@@ -22,24 +22,25 @@ const steps = [
 ];
 
 const Process = () => (
-  <section>
+  <section className="bg-ink text-cream">
     <div className="grid sm:grid-cols-2 md:grid-cols-4">
       {steps.map((step, i) => (
         <div
           key={step.number}
-          className="group flex flex-col gap-3 px-6 sm:px-8 py-7 sm:py-8 border-b border-rule-light last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0 transition-colors duration-200 hover:bg-black hover:text-white"
+          className="flex flex-col gap-3 px-[var(--gutter)] py-9 border-b border-ink-rule md:border-b-0 md:border-r md:last:border-r-0"
         >
           <span
-            className={`display-sm text-[42px] font-semibold leading-none transition-colors duration-200 group-hover:text-signal ${
-              i === steps.length - 1 ? "text-signal" : "text-black"
+            className={`t-numeral ${
+              i === steps.length - 1 ? "text-signal" : "text-cream"
             }`}
+            style={{ fontSize: "clamp(44px, 4.4vw, 68px)" }}
           >
             {step.number}
           </span>
           <span className="text-[15px] font-semibold tracking-[-0.015em]">
             {step.title}
           </span>
-          <span className="text-sm leading-[1.55] text-ink-muted tracking-[-0.005em] transition-colors duration-200 group-hover:text-white/70">
+          <span className="text-[14px] leading-[1.6] text-ink-muted">
             {step.body}
           </span>
         </div>

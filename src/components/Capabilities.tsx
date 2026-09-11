@@ -1,3 +1,8 @@
+import { Section, PlateHead, Body, PlateFrame } from "@/components/plates";
+import { VendorPortalPlate } from "@/components/plates/VendorPortalPlate";
+import { QuestionnaireBuilderPlate } from "@/components/plates/QuestionnaireBuilderPlate";
+import { AuditTrailPlate } from "@/components/plates/AuditTrailPlate";
+
 const capabilities = [
   {
     title: "Approval routing that holds its order",
@@ -34,46 +39,69 @@ const capabilities = [
 ];
 
 const Capabilities = () => (
-  <section className="bg-black text-white px-6 sm:px-12 py-16 sm:py-24">
-    <div className="grid md:grid-cols-2 gap-10 md:gap-20 mb-14 sm:mb-16">
-      <h2
-        className="display-sm font-semibold"
-        style={{ fontSize: "clamp(1.9rem, 4vw, 2.75rem)", maxWidth: "14ch" }}
-      >
-        What the platform actually does.
-      </h2>
-      <p
-        className="text-[17px] leading-[1.65] tracking-[-0.01em] text-white/60 self-end"
-        style={{ maxWidth: "52ch" }}
-      >
+  <Section ground="ink" className="pb-0">
+    <PlateHead
+      numeral="06"
+      heading="What the platform actually does."
+      ground="ink"
+    >
+      <Body ground="ink" dim>
         Not a dashboard bolted onto a spreadsheet. The parts below are the
         working machinery of a vendor programme, and they run whether or not
         anyone remembers to open the tool.
-      </p>
-    </div>
+      </Body>
+    </PlateHead>
 
-    <div className="border-t border-white/20">
+    <div className="mt-10 sm:mt-14 border-t border-ink-rule">
       {capabilities.map((capability, index) => (
         <div
           key={capability.title}
-          className="group grid md:grid-cols-[auto_1fr_1.4fr] gap-4 md:gap-10 py-7 border-b border-white/20 items-start transition-colors duration-200 hover:bg-signal md:px-4 md:-mx-4"
+          className="group flex flex-wrap gap-x-6 sm:gap-x-10 gap-y-2 items-start py-5 sm:py-6 px-4 -mx-4 border-b border-ink-rule transition-colors duration-150 hover:bg-signal hover:text-ink cursor-default"
         >
-          <span className="text-sm font-medium text-signal tabular-nums pt-1 transition-colors duration-200 group-hover:text-white">
+          <span className="font-mono text-[12.5px] text-signal group-hover:text-ink pt-0.5 shrink-0 transition-colors">
             {String(index + 1).padStart(2, "0")}
           </span>
-          <h3 className="text-[17px] font-semibold tracking-[-0.02em] leading-[1.35]">
+          <h3 className="t-subhead m-0 flex-1 basis-[210px] min-w-0">
             {capability.title}
           </h3>
-          <p
-            className="text-[16px] leading-[1.6] tracking-[-0.005em] text-white/60 transition-colors duration-200 group-hover:text-white/90"
-            style={{ maxWidth: "62ch" }}
-          >
+          <p className="m-0 text-[15.5px] sm:text-[16px] leading-[1.6] text-ink-muted group-hover:text-ink flex-2 basis-[320px] min-w-0 transition-colors">
             {capability.body}
           </p>
         </div>
       ))}
     </div>
-  </section>
+
+    {/* Plates 02, 03, 04 preview strip */}
+    <div className="grid grid-cols-1 md:grid-cols-3 border border-ink-rule mt-14 sm:mt-20 mb-10 sm:mb-16">
+      <div className="p-4 sm:p-5 border-b md:border-b-0 md:border-r border-ink-rule">
+        <PlateFrame
+          label="PLATE 02"
+          state="External vendor portal"
+          minHeight={260}
+        >
+          <VendorPortalPlate />
+        </PlateFrame>
+      </div>
+      <div className="p-4 sm:p-5 border-b md:border-b-0 md:border-r border-ink-rule">
+        <PlateFrame
+          label="PLATE 03"
+          state="Questionnaire builder"
+          minHeight={260}
+        >
+          <QuestionnaireBuilderPlate />
+        </PlateFrame>
+      </div>
+      <div className="p-4 sm:p-5">
+        <PlateFrame
+          label="PLATE 04"
+          state="Audit trail"
+          minHeight={260}
+        >
+          <AuditTrailPlate />
+        </PlateFrame>
+      </div>
+    </div>
+  </Section>
 );
 
 export default Capabilities;

@@ -1,20 +1,17 @@
 import { useDemo } from "@/components/DemoDialog";
 
 const CTA = () => {
-  const { open: goToContact } = useDemo();
+  const { open: openDemo } = useDemo();
 
   return (
-    <section className="bg-signal text-white px-6 sm:px-12 py-14 sm:py-[54px]">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-10">
-        <p
-          className="display-sm font-semibold m-0"
-          style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)", maxWidth: "22ch" }}
-        >
+    <section className="bg-signal text-ink gutter py-10 sm:py-14">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 sm:gap-10">
+        <p className="font-display font-normal text-[clamp(1.8rem,3.6vw,2.8rem)] leading-[1.08] tracking-[-0.02em] max-w-[22ch] m-0">
           Your auditor is going to ask. Have it ready.
         </p>
         <button
-          onClick={goToContact}
-          className="bg-white text-signal hover:bg-white/90 text-base font-semibold tracking-[-0.01em] px-[34px] py-[18px] shrink-0 w-fit transition-colors"
+          onClick={openDemo}
+          className="bg-ink text-cream hover:bg-cream hover:text-ink text-[14.5px] font-bold tracking-[-0.01em] px-7 py-4 shrink-0 w-fit transition-colors cursor-pointer"
         >
           Book a demo
         </button>

@@ -7,50 +7,50 @@ const links = [
   { label: "VendorRoll", path: "/vendorroll" },
   { label: "Advisory", path: "/consulting" },
   { label: "Company", path: "/company" },
+  { label: "FAQ", path: "/faq" },
 ];
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
   const { open: openDemo } = useDemo();
-
-  const goToContact = () => {
-    openDemo();
-    setIsMenuOpen(false);
-  };
 
   const go = (path: string) => {
     navigate(path);
     setIsMenuOpen(false);
   };
 
+  const book = () => {
+    openDemo();
+    setIsMenuOpen(false);
+  };
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-black">
-      <div className="flex items-center justify-between h-16 px-6 sm:px-12">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-ink/95 backdrop-blur-sm border-b border-ink-rule">
+      <div className="gutter flex items-center justify-between h-[68px]">
         <button
           onClick={() => go("/")}
-          className="font-archivo font-bold text-lg tracking-[-0.035em] hover:text-signal transition-colors"
+          className="font-display text-[22px] font-normal tracking-[-0.01em] text-cream hover:text-signal transition-colors"
         >
           Oopsie
         </button>
 
-        <div className="hidden md:flex items-center gap-9">
+        <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <button
               key={link.path}
               onClick={() => go(link.path)}
-              className={`text-[13.5px] font-medium tracking-[-0.01em] transition-colors hover:text-signal ${
-                location.pathname === link.path ? "text-signal" : "text-black"
+              className={`text-[14px] tracking-[-0.01em] transition-colors hover:text-signal ${
+                location.pathname === link.path ? "text-signal" : "text-ink-body"
               }`}
             >
               {link.label}
             </button>
           ))}
           <button
-            onClick={goToContact}
-            className="bg-signal hover:bg-signal-hover text-white text-[13.5px] font-semibold tracking-[-0.01em] px-[18px] py-[9px] transition-colors"
+            onClick={book}
+            className="border border-signal text-signal hover:bg-signal hover:text-ink text-[14px] font-medium tracking-[-0.01em] px-5 py-2 transition-colors"
           >
             Book a demo
           </button>
@@ -58,7 +58,7 @@ const Navigation = () => {
 
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-1"
+          className="md:hidden p-1 text-cream"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
           {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -66,19 +66,19 @@ const Navigation = () => {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden border-t border-rule-light px-6 py-5 flex flex-col gap-5">
+        <div className="md:hidden border-t border-ink-rule gutter py-5 flex flex-col gap-5">
           {links.map((link) => (
             <button
               key={link.path}
               onClick={() => go(link.path)}
-              className="text-left text-base font-medium tracking-[-0.015em] hover:text-signal transition-colors"
+              className="text-left text-[16px] tracking-[-0.01em] text-ink-body hover:text-signal transition-colors"
             >
               {link.label}
             </button>
           ))}
           <button
-            onClick={goToContact}
-            className="bg-signal hover:bg-signal-hover text-white text-base font-semibold tracking-[-0.01em] px-5 py-3 text-center transition-colors"
+            onClick={book}
+            className="border border-signal text-signal text-[15px] font-medium px-5 py-3 text-center"
           >
             Book a demo
           </button>

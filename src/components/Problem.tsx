@@ -1,3 +1,5 @@
+import { Section, PlateHead, Body } from "@/components/plates";
+
 const symptoms = [
   {
     title: "The register is a spreadsheet",
@@ -18,54 +20,34 @@ const symptoms = [
 ];
 
 const Problem = () => (
-  <section className="border-t border-black px-6 sm:px-12 py-16 sm:py-24">
-    <div className="grid md:grid-cols-2 gap-10 md:gap-20 mb-14 sm:mb-16">
-      <h2
-        className="display-sm font-semibold"
-        style={{ fontSize: "clamp(1.9rem, 4vw, 2.75rem)", maxWidth: "16ch" }}
-      >
-        Vendor registers decay quietly.
-      </h2>
+  <Section ground="cream">
+    <PlateHead numeral="05" heading="Vendor registers decay quietly." ground="cream">
+      <Body ground="cream">
+        Nobody decides to let third-party risk drift. It happens because the
+        register is a snapshot of a moving thing, and keeping it accurate is
+        somebody's fourth priority on a good week.
+      </Body>
+      <Body ground="cream" dim>
+        The cost only shows up later — during an audit, a security review, or
+        the week a supplier has an incident and you need to know what they held
+        and what they had agreed to.
+      </Body>
+    </PlateHead>
 
-      <div className="flex flex-col gap-5">
-        <p
-          className="text-[17px] leading-[1.65] tracking-[-0.01em]"
-          style={{ maxWidth: "56ch" }}
-        >
-          Nobody decides to let third-party risk drift. It happens because the
-          register is a snapshot of a moving thing, and keeping it accurate is
-          somebody's fourth priority on a good week.
-        </p>
-        <p
-          className="text-[17px] leading-[1.65] tracking-[-0.01em] text-ink-muted"
-          style={{ maxWidth: "56ch" }}
-        >
-          The cost only shows up later — during an audit, a security review, or
-          the week a supplier has an incident and you need to know what they
-          held and what they had agreed to.
-        </p>
-      </div>
-    </div>
-
-    <div className="grid sm:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-0 border-t border-rule-light">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-0 mt-14 border-t border-cream-rule">
       {symptoms.map((symptom) => (
         <div
           key={symptom.title}
-          className="py-8 border-b border-rule-light flex flex-col gap-3"
+          className="py-8 border-b border-cream-rule flex flex-col gap-3"
         >
-          <h3 className="text-[17px] font-semibold tracking-[-0.02em]">
-            {symptom.title}
-          </h3>
-          <p
-            className="text-[16px] leading-[1.6] tracking-[-0.005em] text-ink-muted"
-            style={{ maxWidth: "50ch" }}
-          >
+          <h3 className="t-subhead m-0">{symptom.title}</h3>
+          <p className="text-[15px] leading-[1.65] text-cream-body m-0">
             {symptom.body}
           </p>
         </div>
       ))}
     </div>
-  </section>
+  </Section>
 );
 
 export default Problem;

@@ -1,57 +1,65 @@
 import { useNavigate } from "react-router-dom";
 import { useDemo } from "@/components/DemoDialog";
+import { PlateFrame } from "@/components/plates";
+import { DashboardPlate } from "@/components/plates/DashboardPlate";
 
 const Hero = () => {
   const navigate = useNavigate();
-  const { open: goToContact } = useDemo();
+  const { open: openDemo } = useDemo();
 
   return (
-    <section className="pt-32 sm:pt-40">
-      <div className="px-6 sm:px-12">
-        <h1
-          className="display font-bold animate-wipe-up"
-          style={{ fontSize: "clamp(2.75rem, 8.5vw, 6.5rem)", maxWidth: "15ch" }}
-        >
-          Nothing expires unnoticed.
-        </h1>
-      </div>
+    <section className="bg-ink text-cream gutter pt-[120px] sm:pt-[150px] pb-[var(--rhythm)]">
+      <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-start">
+        <div className="flex flex-col">
+          <h1 className="t-display m-0 animate-wipe-up">
+            Nothing <em className="italic text-signal font-light">expires</em>{" "}
+            unnoticed.
+          </h1>
 
-      <div
-        className="grid md:grid-cols-2 gap-10 md:gap-12 px-6 sm:px-12 pt-10 sm:pt-14 pb-14 sm:pb-16 md:items-end animate-rise"
-        style={{ animationDelay: "0.12s" }}
-      >
-        <div className="flex flex-col items-start gap-6">
-          <div className="flex items-center gap-3">
-            <span
-              className="w-[30px] h-[3px] bg-signal origin-left animate-draw-x"
-              style={{ animationDelay: "0.5s" }}
-            />
-            <span className="text-[15px] font-bold tracking-[-0.025em]">
-              VendorRoll
-            </span>
-          </div>
-          <button
-            onClick={goToContact}
-            className="bg-signal hover:bg-signal-hover text-white text-base font-semibold tracking-[-0.01em] px-[34px] py-[18px] transition-colors"
+          <div
+            className="flex flex-col gap-7 mt-10 animate-rise"
+            style={{ animationDelay: "0.15s" }}
           >
-            Book a demo
-          </button>
+            <div className="flex items-center gap-3">
+              <span
+                className="w-[30px] h-px bg-signal origin-left animate-draw-x"
+                style={{ animationDelay: "0.5s" }}
+              />
+              <span className="text-[14px] font-medium tracking-[-0.01em]">
+                VendorRoll
+              </span>
+            </div>
+
+            <p className="t-body m-0 text-ink-body">
+              VendorRoll tracks every vendor document you depend on — who issued
+              it, what it proves, and the day it stops being true.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-7">
+              <button
+                onClick={openDemo}
+                className="bg-signal text-ink hover:bg-cream text-[15px] font-medium tracking-[-0.01em] px-7 py-3.5 transition-colors cursor-pointer"
+              >
+                Book a demo
+              </button>
+              <button
+                onClick={() => navigate("/consulting")}
+                className="text-[15px] tracking-[-0.01em] text-ink-body hover:text-signal underline underline-offset-[6px] decoration-ink-rule hover:decoration-signal transition-colors cursor-pointer"
+              >
+                SOC 2 and ISO 27001 advisory
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div className="flex flex-col gap-5">
-          <p
-            className="text-[17px] sm:text-[19px] font-normal tracking-[-0.015em] leading-[1.5]"
-            style={{ maxWidth: "40ch" }}
+        <div className="animate-rise" style={{ animationDelay: "0.25s" }}>
+          <PlateFrame
+            label="PLATE 01"
+            state="DASHBOARD · OVERDUE EVIDENCE"
+            minHeight={420}
           >
-            VendorRoll tracks every vendor document you depend on — who issued
-            it, what it proves, and the day it stops being true.
-          </p>
-          <button
-            onClick={() => navigate("/consulting")}
-            className="text-[15px] font-medium tracking-[-0.01em] text-signal hover:text-black transition-colors text-left w-fit"
-          >
-            SOC 2 and ISO 27001 advisory
-          </button>
+            <DashboardPlate />
+          </PlateFrame>
         </div>
       </div>
     </section>

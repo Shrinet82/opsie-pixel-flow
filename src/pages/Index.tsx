@@ -49,7 +49,7 @@ const Index = () => {
   useRouteSectionScroll();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-ink text-cream">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

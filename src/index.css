@@ -2,39 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Signal design system: white ground, black rules, one electric blue. */
+/* The Plates system. Two grounds — ink and cream — alternating by section.
+   #8FB3C7 is the only accent, and it never appears as a gradient. */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    --background: 220 13% 6%;
+    --foreground: 40 26% 94%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    --card: 220 13% 6%;
+    --card-foreground: 40 26% 94%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover: 220 13% 6%;
+    --popover-foreground: 40 26% 94%;
 
-    --primary: 236 100% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 201 33% 67%;
+    --primary-foreground: 220 13% 6%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 220 12% 12%;
+    --secondary-foreground: 40 26% 94%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 36%;
+    --muted: 220 12% 12%;
+    --muted-foreground: 210 8% 65%;
 
-    --accent: 236 100% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 201 33% 67%;
+    --accent-foreground: 220 13% 6%;
 
     --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 40 26% 94%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 0%;
-    --ring: 236 100% 55%;
+    --border: 218 12% 19%;
+    --input: 218 12% 19%;
+    --ring: 201 33% 67%;
 
     --radius: 0px;
+
+    /* Section rhythm and gutter, from the system sheet. */
+    --gutter: clamp(22px, 3.6vw, 44px);
+    --rhythm: clamp(36px, 6vw, 76px);
   }
 }
 
@@ -44,26 +49,95 @@
   }
 
   body {
-    @apply bg-background text-foreground font-archivo;
+    @apply bg-ink text-cream font-sans;
     -webkit-font-smoothing: antialiased;
   }
 
   ::selection {
-    background: #1b2bff;
-    color: #ffffff;
+    background: #8fb3c7;
+    color: #0e0f12;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #8fb3c7;
+    outline-offset: 2px;
   }
 }
 
 @layer components {
-  /* Optical tracking for the display sizes this design leans on. */
-  .display {
-    letter-spacing: -0.05em;
-    line-height: 0.94;
+  /* Gutter and vertical rhythm are shared by both grounds. */
+  .gutter {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
   }
 
-  .display-sm {
-    letter-spacing: -0.04em;
-    line-height: 1.1;
+  .rhythm {
+    padding-top: calc(var(--rhythm) * 1.25);
+    padding-bottom: calc(var(--rhythm) * 1.25);
+  }
+
+  /* DISPLAY · Newsreader 300 */
+  .t-display {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 300;
+    font-size: clamp(2.9rem, 8.6vw, 6.7rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+
+  /* SECTION · Newsreader 400 */
+  .t-section {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(1.9rem, 3.7vw, 2.9rem);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+  }
+
+  /* PLATE NUMERAL · Newsreader 400 */
+  .t-numeral {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(56px, 9vw, 124px);
+    line-height: 0.86;
+    letter-spacing: -0.03em;
+  }
+
+  /* SUBHEAD · Space Grotesk 600 */
+  .t-subhead {
+    font-weight: 600;
+    font-size: clamp(17px, 1.4vw, 19px);
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+  }
+
+  /* BODY · Space Grotesk 400 */
+  .t-body {
+    font-weight: 400;
+    font-size: clamp(16px, 1.2vw, 17px);
+    line-height: 1.65;
+    max-width: 58ch;
+  }
+
+  /* LABEL · Space Mono 400 — labels only, never eyebrows */
+  .t-label {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  /* Hatched well used behind a product screenshot that isn't captured yet. */
+  .plate-well {
+    background-color: #1a1d22;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.022) 0px,
+      rgba(255, 255, 255, 0.022) 1px,
+      transparent 1px,
+      transparent 9px
+    );
   }
 }
 

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
 import { useDemo } from "@/components/DemoDialog";
 
 const faqs = [
@@ -47,7 +46,7 @@ const faqs = [
 
 const FAQ = () => {
   const [openItems, setOpenItems] = useState<number[]>([]);
-  const { open: handleContactClick } = useDemo();
+  const { open: openDemo } = useDemo();
 
   const toggleItem = (index: number) => {
     setOpenItems((prev) =>
@@ -56,52 +55,44 @@ const FAQ = () => {
   };
 
   return (
-    <section className="px-6 sm:px-12 py-16 sm:py-24">
-      <h2
-        className="display-sm font-semibold mb-12 sm:mb-16"
-        style={{ fontSize: "clamp(1.9rem, 4vw, 2.5rem)", maxWidth: "18ch" }}
-      >
-        Questions we get asked.
-      </h2>
-
-      <div className="flex flex-col border-t border-black" style={{ maxWidth: "72ch" }}>
+    <section className="bg-cream text-ink gutter py-10 sm:py-16">
+      <div className="max-w-[72ch] border-t border-[rgba(14,15,18,0.6)]">
         {faqs.map((faq, index) => {
           const isOpen = openItems.includes(index);
           return (
             <div
               key={faq.question}
-              className="border-b border-rule-light"
+              className="border-b border-cream-rule"
               itemScope
               itemType="https://schema.org/Question"
             >
               <button
+                type="button"
                 onClick={() => toggleItem(index)}
-                className="w-full py-6 text-left flex justify-between items-start gap-6 group"
                 aria-expanded={isOpen}
+                className="w-full flex gap-5 justify-between items-start py-5 sm:py-6 bg-transparent border-0 text-left cursor-pointer color-inherit font-sans"
               >
-                <h3
-                  className="text-[17px] sm:text-[19px] font-semibold tracking-[-0.02em] leading-[1.35] group-hover:text-signal transition-colors"
+                <span
+                  className={`text-[clamp(16.5px,1.8vw,19px)] font-semibold tracking-[-0.02em] leading-[1.35] transition-colors ${
+                    isOpen ? "text-signal-cream" : "text-ink hover:text-signal-cream"
+                  }`}
                   itemProp="name"
                 >
                   {faq.question}
-                </h3>
-                <span className="shrink-0 mt-1 text-signal">
-                  {isOpen ? (
-                    <Minus className="w-5 h-5" />
-                  ) : (
-                    <Plus className="w-5 h-5" />
-                  )}
+                </span>
+                <span className="font-mono text-[18px] leading-none text-signal-cream shrink-0 mt-0.5">
+                  {isOpen ? "\u2212" : "+"}
                 </span>
               </button>
 
               {isOpen && (
                 <div
-                  className="pb-6 pr-10"
+                  className="pb-6 pr-6 sm:pr-10"
                   itemScope
                   itemType="https://schema.org/Answer"
                 >
                   <p
-                    className="text-[16px] leading-[1.6] tracking-[-0.005em] text-ink-muted"
+                    className="m-0 text-[15.5px] sm:text-[16px] leading-[1.65] text-cream-body max-w-[64ch]"
                     itemProp="text"
                   >
                     {faq.answer}
@@ -113,13 +104,14 @@ const FAQ = () => {
         })}
       </div>
 
-      <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4">
-        <span className="text-[17px] tracking-[-0.01em]">
+      <div className="flex flex-wrap gap-4 items-center mt-8 sm:mt-12">
+        <span className="text-[16.5px] sm:text-[17px]">
           Something we haven't covered?
         </span>
         <button
-          onClick={handleContactClick}
-          className="text-[15px] font-medium tracking-[-0.01em] text-signal hover:text-black transition-colors w-fit"
+          type="button"
+          onClick={openDemo}
+          className="bg-ink text-cream hover:bg-signal-cream px-6 py-3.5 border-0 font-sans text-[14.5px] font-semibold transition-colors cursor-pointer"
         >
           Ask us directly
         </button>
