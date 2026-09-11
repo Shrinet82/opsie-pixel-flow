@@ -1,62 +1,70 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import Problems from "@/components/Problems";
-import HowItWorks from "@/components/HowItWorks";
-import Services from "@/components/Services";
-import Tools from "@/components/Tools";
-import WhyOopsie from "@/components/WhyOopsie";
+import RegisterWidget from "@/components/RegisterWidget";
+import Ticker from "@/components/Ticker";
+import Process from "@/components/Process";
+import Problem from "@/components/Problem";
+import Capabilities from "@/components/Capabilities";
+import Offerings from "@/components/Offerings";
 import CTA from "@/components/CTA";
-import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import { useRouteSectionScroll } from "@/hooks/use-route-section-scroll";
+
+const siteUrl = "https://www.oopsie.tech";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Oopsie",
+  description:
+    "Oopsie builds VendorRoll, a vendor risk and compliance platform, and provides SOC 2 and ISO 27001 audit-readiness advisory.",
+  url: siteUrl,
+  logo: `${siteUrl}/favicon.svg`,
+  makesOffer: [
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "SoftwareApplication",
+        name: "VendorRoll",
+        applicationCategory: "BusinessApplication",
+        description:
+          "Vendor risk and compliance platform covering intake, approvals, evidence collection, security questionnaires, and contract renewals.",
+        url: `${siteUrl}/vendorroll`,
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Compliance advisory",
+        description:
+          "SOC 2 and ISO 27001 audit-readiness consulting: gap assessment, policy and evidence preparation, and audit support.",
+        url: `${siteUrl}/consulting`,
+      },
+    },
+  ],
+};
 
 const Index = () => {
   useRouteSectionScroll();
 
-  const siteUrl = "https://www.oopsie.tech";
-
   return (
     <div className="min-h-screen">
-      {/* Schema.org structured data for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "Oopsie",
-            description:
-              "No-code automation for SMBs, agencies, and ops teams. Let AI and smart tools do the boring stuff.",
-            url: siteUrl,
-            logo: `${siteUrl}/favicon.svg`,
-            sameAs: [],
-            contactPoint: {
-              "@type": "ContactPoint",
-              contactType: "customer service",
-              availableLanguage: "English",
-            },
-            service: {
-              "@type": "Service",
-              name: "Business Process Automation",
-              description:
-                "Automated workflows and business process optimization using no-code tools",
-              provider: {
-                "@type": "Organization",
-                name: "Oopsie",
-              },
-            },
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
       <Navigation />
       <Hero />
-      <Problems />
-      <HowItWorks />
-      <Services />
-      <Tools />
-      <WhyOopsie />
+      <RegisterWidget />
+      <Ticker />
+      <Process />
+      <Problem />
+      <Capabilities />
+      <Offerings />
       <CTA />
-      <Contact />
+      <Footer />
     </div>
   );
 };

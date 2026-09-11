@@ -1,11 +1,53 @@
 import { useState } from "react";
-import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Plus, Minus } from "lucide-react";
+import { useDemo } from "@/components/DemoDialog";
+
+const faqs = [
+  {
+    question: "What does VendorRoll actually do?",
+    answer:
+      "It holds your vendor register and keeps it current. Vendors are taken through intake and approval, asked for the evidence and questionnaires their risk tier requires, and tracked through contract renewal. Every approval and rejection is recorded against the vendor, so the audit trail builds itself.",
+  },
+  {
+    question: "Do our vendors need to create an account?",
+    answer:
+      "No. Vendors receive a secure link that opens a portal where they upload documents and answer questionnaires. They can see their own progress, and partial submissions are saved, so nothing is lost if they come back later.",
+  },
+  {
+    question: "What happens when a document expires?",
+    answer:
+      "Expiry is read from the document itself when it is uploaded, along with its type and issuer. VendorRoll watches those dates and raises the vendor's risk and notifies the owner before the certificate lapses, rather than after.",
+  },
+  {
+    question: "Can we use this while preparing for SOC 2 or ISO 27001?",
+    answer:
+      "That is the common case. Third-party risk management is an explicit requirement in both frameworks, and VendorRoll produces the evidence and the trail that satisfies it. Our advisory practice can work alongside the platform on the rest of the programme.",
+  },
+  {
+    question: "Is the advisory work available on its own?",
+    answer:
+      "Yes. You can engage us for SOC 2 or ISO 27001 readiness without using VendorRoll — gap assessment, policy and evidence preparation, and support through the audit itself. Teams often start there and adopt the platform afterwards.",
+  },
+  {
+    question: "Can we get the evidence out for an auditor?",
+    answer:
+      "Yes. Vendor records, questionnaire responses, and compliance reports export as PDF and CSV, and the activity log covers who did what and when across your organisation.",
+  },
+  {
+    question: "How do different teams share it?",
+    answer:
+      "Access is organisation-scoped with roles, so compliance, security, and procurement each work from their own queue. Approval workflows route requests through the right people in the right order, and approvers can only act when it is genuinely their turn.",
+  },
+  {
+    question: "How do we get access?",
+    answer:
+      "VendorRoll is sold direct rather than self-serve. Book a demo and we will walk through your vendor process, then set your organisation up if it is a fit.",
+  },
+];
 
 const FAQ = () => {
   const [openItems, setOpenItems] = useState<number[]>([]);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const { open: handleContactClick } = useDemo();
 
   const toggleItem = (index: number) => {
     setOpenItems((prev) =>
@@ -13,138 +55,74 @@ const FAQ = () => {
     );
   };
 
-  const handleContactClick = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-      return;
-    }
-
-    if (location.pathname !== "/") {
-      navigate("/", { state: { scrollTo: "contact" } });
-    }
-  };
-
-  const faqs = [
-    {
-      question: "What types of tasks can Oopsie automate?",
-      answer:
-        "Oopsie can automate repetitive business processes like data entry, email workflows, social media posting, report generation, customer onboarding, lead qualification, invoice processing, and much more. If you're doing it manually more than once, we can likely automate it.",
-    },
-    {
-      question: "How long does it take to implement an automation?",
-      answer:
-        "Simple automations can be set up within 24-48 hours, while complex multi-step workflows typically take 1-2 weeks. During our free audit, we'll give you a precise timeline based on your specific needs.",
-    },
-    {
-      question: "Do I need technical knowledge to use automated workflows?",
-      answer:
-        "Not at all! We build everything using no-code tools and provide complete training. You'll be able to monitor, modify, and manage your automations without any technical background.",
-    },
-    {
-      question: "What tools do you use for automation?",
-      answer:
-        "We primarily use Zapier, Make.com, Airtable, Google Workspace, and various AI tools. We select the best combination based on your existing tech stack and specific requirements.",
-    },
-    {
-      question: "How much can automation save my business?",
-      answer:
-        "Most clients save 10-20 hours per week per automation, which typically translates to $2,000-$5,000+ monthly in time savings. The ROI usually pays for itself within the first month.",
-    },
-    {
-      question: "Do you provide ongoing support after implementation?",
-      answer:
-        "Yes! We offer maintenance packages to monitor your automations, make updates as needed, and provide support. We also train your team so you can handle basic modifications yourself.",
-    },
-    {
-      question: "What if my automation breaks or stops working?",
-      answer:
-        "We build robust automations with error handling and monitoring. If something does break, our support team fixes it quickly. Most automations run for months without any issues.",
-    },
-    {
-      question: "Can you integrate with my existing software?",
-      answer:
-        "Most likely! We work with 1000+ popular business tools including CRMs, email platforms, accounting software, project management tools, and more. We'll check compatibility during your free audit.",
-    },
-  ];
-
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-gray-900 dark:to-blue-950/20 transition-colors duration-300">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="flex justify-center mb-6">
-              <HelpCircle className="w-12 h-12 text-primary-500 dark:text-primary-400 animate-pulse" />
-            </div>
-            <h2 className="font-sora font-bold text-3xl sm:text-4xl md:text-5xl text-midnight-900 dark:text-gray-100 mb-6 transition-colors duration-300">
-              Frequently Asked{" "}
-              <span className="text-primary-500 dark:text-primary-400">
-                Questions
-              </span>
-            </h2>
-            <p className="text-lg sm:text-xl text-midnight-600 dark:text-gray-300 transition-colors duration-300">
-              Everything you need to know about business automation with Oopsie
-            </p>
-          </div>
+    <section className="px-6 sm:px-12 py-16 sm:py-24">
+      <h2
+        className="display-sm font-semibold mb-12 sm:mb-16"
+        style={{ fontSize: "clamp(1.9rem, 4vw, 2.5rem)", maxWidth: "18ch" }}
+      >
+        Questions we get asked.
+      </h2>
 
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl"
-                itemScope
-                itemType="https://schema.org/Question"
-              >
-                <button
-                  onClick={() => toggleItem(index)}
-                  className="w-full px-6 sm:px-8 py-6 text-left flex justify-between items-start hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors duration-200"
-                  aria-expanded={openItems.includes(index)}
-                >
-                  <h3
-                    className="font-sora font-semibold text-lg sm:text-xl text-midnight-900 dark:text-gray-100 pr-4 leading-tight transition-colors duration-300"
-                    itemProp="name"
-                  >
-                    {faq.question}
-                  </h3>
-                  <div className="flex-shrink-0 mt-1">
-                    {openItems.includes(index) ? (
-                      <ChevronUp className="w-5 h-5 text-primary-500 dark:text-primary-400" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-primary-500 dark:text-primary-400" />
-                    )}
-                  </div>
-                </button>
-
-                {openItems.includes(index) && (
-                  <div
-                    className="px-6 sm:px-8 pb-6 animate-in slide-in-from-top-2 duration-300"
-                    itemScope
-                    itemType="https://schema.org/Answer"
-                  >
-                    <p
-                      className="text-midnight-600 dark:text-gray-300 leading-relaxed transition-colors duration-300"
-                      itemProp="text"
-                    >
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-midnight-500 dark:text-gray-400 mb-4 transition-colors duration-300">
-              Still have questions?
-            </p>
-            <button
-              onClick={handleContactClick}
-              className="text-primary-500 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300 font-semibold transition-colors duration-200"
+      <div className="flex flex-col border-t border-black" style={{ maxWidth: "72ch" }}>
+        {faqs.map((faq, index) => {
+          const isOpen = openItems.includes(index);
+          return (
+            <div
+              key={faq.question}
+              className="border-b border-rule-light"
+              itemScope
+              itemType="https://schema.org/Question"
             >
-              Get in touch with our team →
-            </button>
-          </div>
-        </div>
+              <button
+                onClick={() => toggleItem(index)}
+                className="w-full py-6 text-left flex justify-between items-start gap-6 group"
+                aria-expanded={isOpen}
+              >
+                <h3
+                  className="text-[17px] sm:text-[19px] font-semibold tracking-[-0.02em] leading-[1.35] group-hover:text-signal transition-colors"
+                  itemProp="name"
+                >
+                  {faq.question}
+                </h3>
+                <span className="shrink-0 mt-1 text-signal">
+                  {isOpen ? (
+                    <Minus className="w-5 h-5" />
+                  ) : (
+                    <Plus className="w-5 h-5" />
+                  )}
+                </span>
+              </button>
+
+              {isOpen && (
+                <div
+                  className="pb-6 pr-10"
+                  itemScope
+                  itemType="https://schema.org/Answer"
+                >
+                  <p
+                    className="text-[16px] leading-[1.6] tracking-[-0.005em] text-ink-muted"
+                    itemProp="text"
+                  >
+                    {faq.answer}
+                  </p>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4">
+        <span className="text-[17px] tracking-[-0.01em]">
+          Something we haven't covered?
+        </span>
+        <button
+          onClick={handleContactClick}
+          className="text-[15px] font-medium tracking-[-0.01em] text-signal hover:text-black transition-colors w-fit"
+        >
+          Ask us directly
+        </button>
       </div>
     </section>
   );

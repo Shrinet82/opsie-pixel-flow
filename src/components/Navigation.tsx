@@ -1,166 +1,89 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useDemo } from "@/components/DemoDialog";
+
+const links = [
+  { label: "VendorRoll", path: "/vendorroll" },
+  { label: "Advisory", path: "/consulting" },
+  { label: "Company", path: "/company" },
+];
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const scrollToSection = (sectionId: string) => {
-    // If we're not on the home page, navigate to home first
-    if (location.pathname !== "/") {
-      navigate("/", { state: { scrollTo: sectionId } });
-    } else {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-    }
+  const { open: openDemo } = useDemo();
+
+  const goToContact = () => {
+    openDemo();
     setIsMenuOpen(false);
   };
 
-  const scrollToContact = () => {
-    // If we're not on the home page, navigate to home first
-    if (location.pathname !== "/") {
-      navigate("/", { state: { scrollTo: "contact" } });
-    } else {
-      const contactSection = document.getElementById("contact");
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: "smooth" });
-      }
-    }
+  const go = (path: string) => {
+    navigate(path);
     setIsMenuOpen(false);
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div
-            onClick={() => navigate("/")}
-            className="font-sora font-black text-2xl text-primary-600 dark:text-primary-400 cursor-pointer hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-          >
-            OOPSIE
-          </div>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-black">
+      <div className="flex items-center justify-between h-16 px-6 sm:px-12">
+        <button
+          onClick={() => go("/")}
+          className="font-archivo font-bold text-lg tracking-[-0.035em] hover:text-signal transition-colors"
+        >
+          Oopsie
+        </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center gap-9">
+          {links.map((link) => (
             <button
-              onClick={() => scrollToSection("how-it-works")}
-              className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
+              key={link.path}
+              onClick={() => go(link.path)}
+              className={`text-[13.5px] font-medium tracking-[-0.01em] transition-colors hover:text-signal ${
+                location.pathname === link.path ? "text-signal" : "text-black"
+              }`}
             >
-              How It Works
+              {link.label}
             </button>
-            <button
-              onClick={() => scrollToSection("services")}
-              className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => navigate("/sentra")}
-              className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors inline-flex items-center"
-            >
-              Sentra
-              <span className="ml-2 bg-accent text-white text-[10px] px-1 py-0.5 rounded-full font-bold leading-none">
-                NEW
-              </span>
-            </button>
-            <button
-              onClick={() => navigate("/case-studies")}
-              className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
-            >
-              Case Studies
-            </button>
-            <button
-              onClick={() => navigate("/ai-agents")}
-              className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
-            >
-              AI Agents
-            </button>
-            <button
-              onClick={() => navigate("/faq")}
-              className="text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
-            >
-              FAQ
-            </button>
-            <Button
-              onClick={scrollToContact}
-              className="bg-primary-500 hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700 text-white font-medium px-6 py-2"
-            >
-              Contact Us
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
+          ))}
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            onClick={goToContact}
+            className="bg-signal hover:bg-signal-hover text-white text-[13.5px] font-semibold tracking-[-0.01em] px-[18px] py-[9px] transition-colors"
           >
-            {isMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            Book a demo
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
-            <div className="flex flex-col space-y-4">
-              <button
-                onClick={() => scrollToSection("how-it-works")}
-                className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
-              >
-                How It Works
-              </button>
-              <button
-                onClick={() => scrollToSection("services")}
-                className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
-              >
-                Services
-              </button>
-              <button
-                onClick={() => navigate("/sentra")}
-                className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors relative inline-flex items-center"
-              >
-                Sentra
-                <span className="ml-2 bg-accent text-white text-[10px] px-1 py-0.5 rounded-full font-bold leading-none">
-                  NEW
-                </span>
-              </button>
-              <button
-                onClick={() => navigate("/case-studies")}
-                className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
-              >
-                Case Studies
-              </button>
-              <button
-                onClick={() => navigate("/ai-agents")}
-                className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
-              >
-                AI Agents
-              </button>
-              <button
-                onClick={() => navigate("/faq")}
-                className="text-left text-midnight-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors"
-              >
-                FAQ
-              </button>
-              <Button
-                onClick={scrollToContact}
-                className="bg-primary-500 hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700 text-white font-medium w-full"
-              >
-                Contact Us
-              </Button>
-            </div>
-          </div>
-        )}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden p-1"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        >
+          {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {isMenuOpen && (
+        <div className="md:hidden border-t border-rule-light px-6 py-5 flex flex-col gap-5">
+          {links.map((link) => (
+            <button
+              key={link.path}
+              onClick={() => go(link.path)}
+              className="text-left text-base font-medium tracking-[-0.015em] hover:text-signal transition-colors"
+            >
+              {link.label}
+            </button>
+          ))}
+          <button
+            onClick={goToContact}
+            className="bg-signal hover:bg-signal-hover text-white text-base font-semibold tracking-[-0.01em] px-5 py-3 text-center transition-colors"
+          >
+            Book a demo
+          </button>
+        </div>
+      )}
     </nav>
   );
 };

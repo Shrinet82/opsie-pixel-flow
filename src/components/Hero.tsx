@@ -1,103 +1,57 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Zap } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useDemo } from "@/components/DemoDialog";
 
 const Hero = () => {
   const navigate = useNavigate();
-
-  const scrollToContact = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const { open: goToContact } = useDemo();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/30 to-blue-50/20 dark:from-gray-900 dark:via-purple-950/50 dark:to-blue-950/30 bg-pixel-pattern transition-colors duration-300 pt-16">
-      {/* Floating Elements - Psychology: Subtle movement creates engagement */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute top-20 left-20 w-12 h-12 bg-primary/20 dark:bg-primary/30 rounded-lg animate-float"
-          style={{ animationDelay: "0s" }}
-        />
-        <div
-          className="absolute top-40 right-32 w-8 h-8 bg-accent/30 dark:bg-accent/40 rounded-lg animate-float"
-          style={{ animationDelay: "1s" }}
-        />
-        <div
-          className="absolute bottom-32 left-32 w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-lg animate-float"
-          style={{ animationDelay: "2s" }}
-        />
-        <div
-          className="absolute bottom-20 right-20 w-6 h-6 bg-accent/20 dark:bg-accent/30 rounded-lg animate-float"
-          style={{ animationDelay: "0.5s" }}
-        />
+    <section className="pt-32 sm:pt-40">
+      <div className="px-6 sm:px-12">
+        <h1
+          className="display font-bold animate-wipe-up"
+          style={{ fontSize: "clamp(2.75rem, 8.5vw, 6.5rem)", maxWidth: "15ch" }}
+        >
+          Nothing expires unnoticed.
+        </h1>
       </div>
 
-      <div className="container mx-auto px-6 z-10">
-        <div className="text-center max-w-5xl mx-auto">
-          {/* Logo */}
-          <div className="mb-8 flex justify-center">
-            <div className="pixel-shadow hover:pixel-shadow-hover transition-all duration-300 bg-white dark:bg-gray-800 rounded-lg p-4">
-              <div className="font-sora font-black text-4xl text-primary-600 dark:text-primary-400 tracking-tight">
-                OOPSIE
-              </div>
-            </div>
-          </div>
-
-          {/* Main Headline - Psychology: "Twice" triggers recognition */}
-          <h1 className="font-sora font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-6 text-midnight-900 dark:text-gray-100 leading-tight animate-slide-in transition-colors duration-300 px-2 sm:px-0">
-            For everything you do{" "}
-            <span className="bg-gradient-to-r from-primary-500 to-primary-700 dark:from-primary-400 dark:to-primary-600 bg-clip-text text-transparent relative">
-              twice
-              <Sparkles className="absolute -top-1 -right-6 sm:-top-2 sm:-right-8 w-6 h-6 sm:w-8 sm:h-8 text-primary-400 dark:text-primary-300 animate-pulse" />
+      <div
+        className="grid md:grid-cols-2 gap-10 md:gap-12 px-6 sm:px-12 pt-10 sm:pt-14 pb-14 sm:pb-16 md:items-end animate-rise"
+        style={{ animationDelay: "0.12s" }}
+      >
+        <div className="flex flex-col items-start gap-6">
+          <div className="flex items-center gap-3">
+            <span
+              className="w-[30px] h-[3px] bg-signal origin-left animate-draw-x"
+              style={{ animationDelay: "0.5s" }}
+            />
+            <span className="text-[15px] font-bold tracking-[-0.025em]">
+              VendorRoll
             </span>
-          </h1>
-
-          <div
-            className="font-sora font-medium text-xl sm:text-2xl md:text-3xl mb-8 text-primary-600 dark:text-primary-400 animate-slide-in transition-colors duration-300 px-2 sm:px-0"
-            style={{ animationDelay: "0.2s" }}
-          >
-            —Oopsie does it for you.
           </div>
+          <button
+            onClick={goToContact}
+            className="bg-signal hover:bg-signal-hover text-white text-base font-semibold tracking-[-0.01em] px-[34px] py-[18px] transition-colors"
+          >
+            Book a demo
+          </button>
+        </div>
 
-          {/* Subtext - Psychology: Green suggests positive outcome */}
+        <div className="flex flex-col gap-5">
           <p
-            className="text-lg sm:text-xl md:text-2xl text-midnight-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed animate-slide-in transition-colors duration-300 px-4 sm:px-0"
-            style={{ animationDelay: "0.4s" }}
+            className="text-[17px] sm:text-[19px] font-normal tracking-[-0.015em] leading-[1.5]"
+            style={{ maxWidth: "40ch" }}
           >
-            No-code automation for SMBs, agencies, and ops teams.
-            <br className="hidden sm:block" />
-            <span className="font-medium text-accent dark:text-emerald-400">
-              Let AI and smart tools do the boring stuff.
-            </span>
+            VendorRoll tracks every vendor document you depend on — who issued
+            it, what it proves, and the day it stops being true.
           </p>
-
-          {/* CTA Buttons */}
-          <div
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-in"
-            style={{ animationDelay: "0.6s" }}
+          <button
+            onClick={() => navigate("/consulting")}
+            className="text-[15px] font-medium tracking-[-0.01em] text-signal hover:text-black transition-colors text-left w-fit"
           >
-            <Button
-              onClick={scrollToContact}
-              size="lg"
-              className="bg-primary-500 hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700 text-white font-sora font-semibold text-lg px-8 py-4 h-auto pixel-shadow hover:pixel-shadow-hover transition-all duration-300 group"
-            >
-              Contact Us
-              <Zap className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform text-emerald-400 dark:text-emerald-300" />
-            </Button>
-
-            <Button
-              onClick={() => navigate("/sentra")}
-              variant="outline"
-              size="lg"
-              className="border-2 border-primary-300 dark:border-primary-500 text-primary-700 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-primary-950/50 font-sora font-medium text-lg px-8 py-4 h-auto group transition-all duration-300"
-            >
-              Explore Sentra
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
-
+            SOC 2 and ISO 27001 advisory
+          </button>
         </div>
       </div>
     </section>
