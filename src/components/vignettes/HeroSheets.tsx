@@ -2,9 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { VENDORROLL_URL } from "@/data/links";
-import { VendorrollVignette } from "./VendorrollVignette";
-import { LedgerVignette } from "./LedgerVignette";
-import { AdvisoryVignette } from "./AdvisoryVignette";
+import { RequestTimeline, ReadinessBars, UsageChart } from "./SheetArtifacts";
 
 type Sheet = {
   name: string;
@@ -23,9 +21,9 @@ type Sheet = {
 // Cascade: each sheet sits lower and further right, so every label and its
 // first rows stay visible. Offsets are percentages of the sheet's own size.
 const SHEETS: Sheet[] = [
-  { name: "Vendorroll", tag: "Live", tone: "text-vendorroll-dark", hover: "hover:border-vendorroll-dark/60 focus-visible:border-vendorroll-dark/60", href: VENDORROLL_URL, external: true, tx: "0%", ty: "0%", r: "-2.5deg", fd: "7s", body: <VendorrollVignette bare /> },
-  { name: "Ledgerline", tag: "Coming soon", tone: "text-copper", hover: "hover:border-copper/60 focus-visible:border-copper/60", href: "/ledgerline", tx: "13%", ty: "54%", r: "1.5deg", fd: "8.5s", body: <LedgerVignette bare /> },
-  { name: "Advisory", tag: "Taking engagements", tone: "text-gold", hover: "hover:border-gold/70 focus-visible:border-gold/70", href: "/advisory", tx: "26%", ty: "108%", r: "-1deg", fd: "6.5s", body: <AdvisoryVignette bare /> },
+  { name: "Vendorroll", tag: "Live", tone: "text-vendorroll-dark", hover: "hover:border-vendorroll-dark/60 focus-visible:border-vendorroll-dark/60", href: VENDORROLL_URL, external: true, tx: "0%", ty: "0%", r: "-2.5deg", fd: "7s", body: <RequestTimeline /> },
+  { name: "Advisory", tag: "Taking engagements", tone: "text-gold", hover: "hover:border-gold/70 focus-visible:border-gold/70", href: "/advisory", tx: "13%", ty: "54%", r: "1.5deg", fd: "8.5s", body: <ReadinessBars /> },
+  { name: "Ledgerline", tag: "Coming soon", tone: "text-copper", hover: "hover:border-copper/60 focus-visible:border-copper/60", href: "/ledgerline", tx: "26%", ty: "108%", r: "-1deg", fd: "6.5s", body: <UsageChart /> },
 ];
 
 const sheetClass =

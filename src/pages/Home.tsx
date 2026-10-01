@@ -88,17 +88,6 @@ export default function Home() {
             </article>
           </Reveal>
           <Reveal delay={70}>
-            <article className={card}>
-              <p className="label text-copper">Coming soon</p>
-              <h2 className="h-card mt-4">Ledgerline</h2>
-              <p className="muted mt-3 text-[15px] leading-relaxed">
-                Billing for businesses with subscription and usage-based pricing.
-              </p>
-              <div className="my-7"><LedgerVignette /></div>
-              <Link to="/ledgerline" className="link-u mt-auto self-start text-[15px]">Learn more</Link>
-            </article>
-          </Reveal>
-          <Reveal delay={140}>
             <article className={`${card} !border-gold/40`}>
               <p className="label text-gold">Taking engagements</p>
               <h2 className="h-card mt-4">Advisory</h2>
@@ -107,6 +96,17 @@ export default function Home() {
               </p>
               <div className="my-7"><AdvisoryVignette /></div>
               <Link to="/advisory" className="link-u mt-auto self-start text-[15px]">Explore advisory</Link>
+            </article>
+          </Reveal>
+          <Reveal delay={140}>
+            <article className={card}>
+              <p className="label text-copper">Coming soon</p>
+              <h2 className="h-card mt-4">Ledgerline</h2>
+              <p className="muted mt-3 text-[15px] leading-relaxed">
+                Billing for businesses with subscription and usage-based pricing.
+              </p>
+              <div className="my-7"><LedgerVignette /></div>
+              <Link to="/ledgerline" className="link-u mt-auto self-start text-[15px]">Learn more</Link>
             </article>
           </Reveal>
         </div>

@@ -169,7 +169,7 @@
 @media (prefers-reduced-motion: no-preference) {
   /* Ledger: events drift in, settle; lines type; total resolves. 10s cycle. */
   .vig [data-anim="dot"] {
-    animation: dot-drift 10s var(--ease) infinite;
+    animation: dot-drift 10s var(--ease) infinite backwards;
     animation-delay: var(--dd, 0s);
   }
   @keyframes dot-drift {
@@ -182,7 +182,7 @@
   .vig [data-anim="type"] {
     overflow: hidden;
     white-space: nowrap;
-    animation: type-in 10s steps(var(--n, 10), end) infinite;
+    animation: type-in 10s steps(var(--n, 10), end) infinite backwards;
     animation-delay: var(--td, 0s);
   }
   @keyframes type-in {
@@ -203,7 +203,7 @@
   /* Advisory: ticks draw as strokes in turn. 12s cycle. */
   .vig [data-anim="tick"] {
     stroke-dasharray: 24;
-    animation: tick-draw 12s var(--ease) infinite;
+    animation: tick-draw 12s var(--ease) infinite backwards;
     animation-delay: var(--td, 0s);
   }
   @keyframes tick-draw {
@@ -212,7 +212,7 @@
     94%, 100% { stroke-dashoffset: 24; }
   }
   .vig [data-anim="box"] {
-    animation: box-fill 12s var(--ease) infinite;
+    animation: box-fill 12s var(--ease) infinite backwards;
     animation-delay: var(--td, 0s);
   }
   @keyframes box-fill {
@@ -221,7 +221,7 @@
     94%, 100% { background-color: transparent; }
   }
   .vig [data-anim="row"] {
-    animation: row-dim 12s var(--ease) infinite;
+    animation: row-dim 12s var(--ease) infinite backwards;
     animation-delay: var(--td, 0s);
   }
   @keyframes row-dim {
@@ -260,5 +260,46 @@
   @keyframes sheet-float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
+  }
+}
+
+/* ---------- Hero sheet artifacts: request timeline, readiness bars, usage chart. ---------- */
+.vig [data-anim="line"] { transform-origin: top; }
+.vig [data-anim="bar"] { transform-origin: left; transform: scaleX(var(--w, 1)); }
+.vig [data-anim="col"] { transform-origin: bottom; transform: scaleY(var(--h, 1)); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .vig [data-anim="line"] { animation: line-grow 10s var(--ease) infinite backwards; }
+  @keyframes line-grow {
+    0% { transform: scaleY(0); }
+    34%, 88% { transform: scaleY(1); }
+    96%, 100% { transform: scaleY(0); }
+  }
+  .vig [data-anim="step"] {
+    animation: step-on 10s var(--ease) infinite backwards;
+    animation-delay: var(--td, 0s);
+  }
+  @keyframes step-on {
+    0% { opacity: 0.25; }
+    8%, 86% { opacity: 1; }
+    95%, 100% { opacity: 0.25; }
+  }
+  .vig [data-anim="bar"] {
+    animation: bar-grow 9s var(--ease) infinite backwards;
+    animation-delay: var(--td, 0s);
+  }
+  @keyframes bar-grow {
+    0% { transform: scaleX(0); }
+    20%, 86% { transform: scaleX(var(--w, 1)); }
+    95%, 100% { transform: scaleX(0); }
+  }
+  .vig [data-anim="col"] {
+    animation: col-grow 9s var(--ease) infinite backwards;
+    animation-delay: var(--td, 0s);
+  }
+  @keyframes col-grow {
+    0% { transform: scaleY(0); }
+    16%, 86% { transform: scaleY(var(--h, 1)); }
+    95%, 100% { transform: scaleY(0); }
   }
 }
