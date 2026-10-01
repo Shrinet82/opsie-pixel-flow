@@ -1,0 +1,33 @@
+{
+  "site": "https://oopsie.tech",
+  "pages": {
+    "/": {
+      "title": "Oopsie: Enterprise-quality software and compliance for growing businesses",
+      "description": "Oopsie builds focused software and runs hands-on compliance work for B2B companies too big for spreadsheets and too small for enterprise contracts."
+    },
+    "/ledgerline": {
+      "title": "Ledgerline: billing for subscription and usage-based pricing | Oopsie",
+      "description": "Ledgerline is coming soon from Oopsie: billing for businesses with subscription and usage-based pricing, with every invoice line explained."
+    },
+    "/advisory": {
+      "title": "Advisory: SOC 2 and ISO 27001 readiness, penetration testing | Oopsie",
+      "description": "Hands-on SOC 2 and ISO 27001 readiness, policies, penetration testing and audit support for growing B2B companies, from a senior team at a fair price."
+    },
+    "/company": {
+      "title": "About Oopsie: for everything you do twice",
+      "description": "Oopsie is a B2B company building focused software and running hands-on compliance work. Our team is based in India and works with companies everywhere."
+    },
+    "/contact": {
+      "title": "Talk to us | Oopsie",
+      "description": "Tell us a little about your company. We reply within one business day and will tell you honestly whether we can help."
+    },
+    "/privacy": {
+      "title": "Privacy notice | Oopsie",
+      "description": "What the Oopsie contact form collects, why, and how long we keep it."
+    },
+    "/terms": {
+      "title": "Terms | Oopsie",
+      "description": "Terms for using the Oopsie website."
+    }
+  }
+}

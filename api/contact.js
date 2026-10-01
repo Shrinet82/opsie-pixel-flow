@@ -61,8 +61,9 @@ export default async function handler(req, res) {
   }
   const name = asString(body.name);
   const email = asString(body.email);
-  const businessType = asString(body.businessType);
-  const automation = asString(body.automation);
+  const company = asString(body.company);
+  const interest = asString(body.interest);
+  const message = asString(body.message);
   const honeypot = asString(body.website);
   const source = asString(body.source);
 
@@ -71,7 +72,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  if (!name || !email || !automation) {
+  if (!name || !email || !message) {
     res.status(400).json({ error: "Missing required fields" });
     return;
   }
@@ -79,8 +80,9 @@ export default async function handler(req, res) {
   if (
     name.length > 120 ||
     email.length > 320 ||
-    businessType.length > 160 ||
-    automation.length > MAX_BODY_LENGTH
+    company.length > 160 ||
+    interest.length > 60 ||
+    message.length > MAX_BODY_LENGTH
   ) {
     res.status(400).json({ error: "Input too long" });
     return;
@@ -101,8 +103,12 @@ export default async function handler(req, res) {
         timestamp: new Date().toISOString(),
         name,
         email,
-        businessType,
-        automation,
+        company,
+        interest,
+        message,
+        // Legacy column names, kept so the existing sheet script keeps working.
+        businessType: company,
+        automation: `[${interest || "Other"}] ${message}`,
         source,
       }),
     });

@@ -1,42 +1,28 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import VendorRoll from "./pages/VendorRoll";
-import Consulting from "./pages/Consulting";
+import Home from "./pages/Home";
+import Ledgerline from "./pages/Ledgerline";
+import Advisory from "./pages/Advisory";
 import Company from "./pages/Company";
-import FAQPage from "./pages/FAQ";
+import Contact from "./pages/Contact";
+import { Privacy, Terms } from "./pages/Legal";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
-import { DemoProvider } from "./components/DemoDialog";
 
-const queryClient = new QueryClient();
-
+// /vendorroll, /sentra, /consulting and /faq are redirected at the edge (vercel.json).
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <DemoProvider>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/vendorroll" element={<VendorRoll />} />
-          {/* Legacy codename URL — kept alive so old /sentra links don't 404 */}
-          <Route path="/sentra" element={<VendorRoll />} />
-          <Route path="/consulting" element={<Consulting />} />
-          <Route path="/company" element={<Company />} />
-          <Route path="/faq" element={<FAQPage />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        </DemoProvider>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <BrowserRouter>
+    <ScrollToTop />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/ledgerline" element={<Ledgerline />} />
+      <Route path="/advisory" element={<Advisory />} />
+      <Route path="/company" element={<Company />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/terms" element={<Terms />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </BrowserRouter>
 );
 
 export default App;

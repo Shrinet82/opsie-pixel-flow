@@ -1,6 +1,12 @@
 {
+  "redirects": [
+    { "source": "/vendorroll", "destination": "https://vendorroll.oopsie.tech", "permanent": true },
+    { "source": "/sentra", "destination": "https://vendorroll.oopsie.tech", "permanent": true },
+    { "source": "/consulting", "destination": "/advisory", "permanent": true },
+    { "source": "/faq", "destination": "/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
