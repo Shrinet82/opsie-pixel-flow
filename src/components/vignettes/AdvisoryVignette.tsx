@@ -3,14 +3,14 @@ import { useIsLive } from "@/hooks/use-in-view";
 const STEPS = ["Gap assessment", "Policies & controls", "Penetration test", "Audit ready"];
 
 /** A four-step checklist that ticks itself, each tick drawn as a stroke. */
-export function AdvisoryVignette() {
+export function AdvisoryVignette({ bare = false }: { bare?: boolean }) {
   const [ref, live] = useIsLive<HTMLDivElement>();
   return (
     <div
       ref={ref}
       role="img"
       aria-label="A checklist that ticks itself: gap assessment, policies and controls, penetration test, audit ready."
-      className={`vig on-dark border border-gold/40 bg-ink-2 p-4 text-bone ${live ? "is-live" : ""}`}
+      className={`vig on-dark text-bone ${bare ? "" : "border border-gold/40 bg-ink-2 p-4"} ${live ? "is-live" : ""}`}
     >
       <ol className="m-0 list-none p-0">
         {STEPS.map((s, i) => (
@@ -18,7 +18,7 @@ export function AdvisoryVignette() {
             key={s}
             data-anim="row"
             style={{ ["--td" as string]: `${0.5 + i * 1.6}s` }}
-            className={`flex items-center gap-3 py-3 ${i ? "border-t border-bone/10" : ""}`}
+            className={`flex items-center gap-3 ${bare ? "py-2" : "py-3"} ${i ? "border-t border-bone/10" : ""}`}
           >
             <span
               data-anim="box"

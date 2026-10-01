@@ -159,24 +159,8 @@
     animation-delay: var(--d, 0ms);
   }
 
-  /* Home hero sheets fan out. */
-  .sheet {
-    transform: translate(0, 0) rotate(0);
-    animation: sheet-fan 1s var(--ease) forwards;
-    animation-delay: calc(0.5s + var(--i) * 90ms);
-  }
-  @keyframes sheet-fan {
-    to { transform: translate(var(--tx), var(--ty)) rotate(var(--r)); }
-  }
 }
 
-/* Final / reduced-motion state for the sheets. */
-.sheet {
-  transform: translate(var(--tx), var(--ty)) rotate(var(--r));
-}
-@media (prefers-reduced-motion: no-preference) {
-  .sheet { transform: translate(0, 0) rotate(0); }
-}
 
 /* ---------- Vignette loops. Paused until visible. ---------- */
 .vig [data-anim] { animation-play-state: paused; }
@@ -248,3 +232,33 @@
 }
 
 .vig [data-anim="type"] { display: inline-block; vertical-align: bottom; }
+
+/* ---------- Hero sheets: fan out, lift on hover, float at rest. ---------- */
+.sheet {
+  z-index: var(--z);
+  transform: translate(var(--tx), var(--ty)) rotate(var(--r));
+  transition: transform 0.45s var(--ease), border-color 0.3s var(--ease), box-shadow 0.45s var(--ease);
+}
+.sheet:hover,
+.sheet:focus-visible {
+  z-index: 10;
+  transform: translate(var(--tx), calc(var(--ty) - 14px)) rotate(0deg) scale(1.025);
+  box-shadow: 0 40px 70px -30px rgba(0, 0, 0, 0.9);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sheet {
+    animation: sheet-fan 1s var(--ease) backwards;
+    animation-delay: calc(0.5s + var(--i) * 90ms);
+  }
+  @keyframes sheet-fan {
+    from { transform: translate(0, 0) rotate(0); opacity: 0; }
+  }
+  .sheet-float {
+    animation: sheet-float var(--fd, 7s) ease-in-out infinite;
+    animation-delay: calc(1.8s + var(--i) * 0.6s);
+  }
+  @keyframes sheet-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+}
